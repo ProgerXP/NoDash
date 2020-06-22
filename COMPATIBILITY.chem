@@ -1,0 +1,424 @@
+`! +pg=COMPATIBILITY
+
+`# Compatibility table
+
+This table puts equivalent NoDash, Underscore, LoDash and ECMAScript's functions side by side, noting their differences where applicable.
+
+`{FunctionIndex
+NoDash | https://underscorejs.org/# Underscore v1.10.2 | https://lodash.com/docs/# LoDash v4.17.15 | https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference ECMAScript
+allKeys | allKeys |  |
+ |  | add |
+ | after | after |
+ |  | ary |
+assign | assign -> extendOwn | assign | assign
+ |  | assignIn |
+ |  | assignInWith |
+ |  | assignWith |
+17 at |  | at |
+ |  | attempt |
+ | before | before |
+bind | bind | bind | bind
+ | bindAll | bindAll |
+ |  | bindKey |
+ |  | camelCase |
+ |  | capitalize |
+ |  | castArray |
+ |  | ceil |
+ | chain | chain |
+chunk | chunk | chunk |
+ |  | clamp |
+ | clone | clone |
+ |  | 13 cloneDeep |
+ |  | cloneDeepWith |
+ |  | cloneWith |
+compact | compact | compact |
+ |  | concat |
+ |  | cond |
+ |  | conforms |
+ |  | conformsTo |
+contains -> includes | contains |  |
+ | constant | constant |
+countBy | countBy | countBy |
+ | create | create |
+ |  | curry |
+ |  | curryRight |
+debounce | debounce | debounce |
+ |  | deburr |
+ | defaults | defaults |
+ |  | defaultsDeep |
+ |  | defaultTo |
+defer | defer | defer |
+delay | delay | delay | setTimeout
+difference | difference | difference |
+ |  | differenceBy |
+ |  | differenceWith |
+ |  | divide |
+drop -> rest |  | drop |
+dropRight -> initial |  | dropRight |
+ |  | dropRightWhile |
+ |  | dropWhile |
+each -> forEach | each | each -> forEach |
+ |  | eachRight -> forEachRight |
+endsWith |  | endsWith | 6 endsWith
+entries |  | entries -> toPairs | entries
+ |  | entriesIn -> toPairsIn |
+ |  | eq |
+20 escape | escape | escape |
+escapeRegExp |  | escapeRegExp |
+every | every | every | every
+extend -> assign | extend | extend -> assignIn |
+ |  | extendWith -> assignInWith |
+fill |  | fill | fill
+filter | filter | filter | filter
+find | find | find | 6 find
+findIndex | findIndex | findIndex | 6 findIndex
+findKey -> findIndex | findKey | findKey |
+ |  | findLast |
+ | findLastIndex | findLastIndex |
+ |  | findLastKey |
+first | first | first -> head |
+ |  | flatMap |
+ |  | flatMapDeep |
+ |  | flatMapDepth |
+1 flatten -> flat | flatten | flatten |
+flattenDeep |  | flattenDeep |
+flattenDepth -> flat |  | flattenDepth |
+flip |  | 19 flip |
+ |  | floor |
+ |  | flow |
+ |  | flowRight |
+forEach | forEach -> each | forEach | forEach
+ |  | forEachRight |
+ |  | forIn |
+ |  | forInRight |
+forOwn -> forEach |  | forOwn |
+ |  | forOwnRight |
+fromPairs -> fromEntries | 21 object | fromPairs |
+ | functions | functions |
+ |  | functionsIn |
+ |  | get |
+groupBy | groupBy | groupBy |
+ |  | gt |
+ |  | gte |
+has -> hasOwn | has | has |
+hasOwn |  |  | hasOwnProperty
+ |  | hasIn |
+head -> first |  | head |
+ | identity | identity |
+includes |  | includes | includes
+indexBy | indexBy |  |
+indexOf | indexOf | indexOf | indexOf
+initial | initial | initial |
+ |  | inRange |
+intersection | intersection | intersection |
+ |  | intersectionBy |
+ |  | intersectionWith |
+invert -> flip | invert | invert |
+ |  | invertBy |
+invoke | invoke | 8 invoke |
+ |  | invokeMap |
+isArguments | isArguments | isArguments |
+isArray -> instanceof Array | isArray | isArray |
+ |  | isArrayBuffer |
+ |  | isArrayLikeObject |
+ | isBoolean | isBoolean |
+ |  | isBuffer |
+ | isDate | 11 isDate |
+isElement | isElement | isElement |
+isEmpty | isEmpty | isEmpty |
+12 isEqual -> == | isEqual | isEqual |
+ |  | isEqualWith |
+ | isError | 11 isError |
+ | isFinite | isFinite |
+ | isFunction | 11 isFunction |
+ |  | isInteger |
+ |  | isLength |
+ | isMap | 11 isMap |
+ | isMatch | isMatch |
+ |  | isMatchWith |
+ | isNaN | isNaN |
+ |  | isNative |
+ |  | isNil |
+ | isNull | isNull |
+ | isNumber | isNumber |
+ | isObject | isObject |
+ |  | isObjectLike |
+ |  | isPlainObject |
+ | isRegExp | 11 isRegExp |
+ |  | isSafeInteger |
+ | isSet | 11 isSet |
+ | isString | isString |
+ | isSymbol | isSymbol |
+ |  | isTypedArray |
+ | isUndefined | 11 isUndefined |
+ | isWeakMap | 11 isWeakMap |
+ | isWeakSet | 11 isWeakSet |
+ | iteratee | iteratee |
+join |  | join | join
+ |  | kebabCase |
+keyBy -> indexBy |  | keyBy |
+keys | keys | keys | keys
+ |  | keysIn |
+last | last | last |
+lastIndexOf | lastIndexOf | lastIndexOf | lastIndexOf
+ |  | lowerCase |
+ |  | lowerFirst |
+ |  | lt |
+ |  | lte |
+map | map | map | map
+ |  | mapKeys |
+mapValues -> map |  | mapValues |
+ | matches -> matcher | matches |
+ |  | matchesProperty |
+max | max | max | max
+maxBy -> max |  | maxBy |
+ |  | mean |
+ |  | meanBy |
+16 once | memoize | memoize |
+ |  | merge |
+ |  | mergeWith |
+ |  | method |
+ |  | methodOf |
+min | min | min | min
+minBy -> min |  | minBy |
+ | mixin | 10 mixin |
+ |  | multiply |
+negate | negate | negate |
+noConflict | noConflict | noConflict |
+ | now | now |
+nth -> at |  | nth |
+ |  | nthArg |
+21 object |  |  |
+omit | omit | omit |
+ |  | omitBy |
+once | once | once |
+ |  | orderBy |
+ |  | over |
+ |  | overArgs |
+ |  | overEvery |
+ |  | overSome |
+ |  | 5 pad |
+padEnd |  | padEnd | 6 padEnd
+padStart |  | padStart | 6 padStart
+pairs -> entries | pairs |  |
+ |  | parseInt |
+partial -> bind | partial | partial |
+ |  | partialRight |
+partition | partition | partition |
+pick | pick | pick |
+ |  | pickBy |
+pluck | pluck |  |
+property | property | 18 property |
+ | propertyOf | propertyOf |
+ |  | prototype.at |
+ |  | prototype.chain |
+ |  | prototype.commit |
+ |  | prototype.next |
+ |  | prototype.plant |
+ |  | prototype.reverse |
+ |  | prototype.toJSON -> value |
+ |  | prototype.value |
+ |  | prototype.valueOf -> value |
+ |  | prototype[Symbol.iterator] |
+ |  | pull |
+ |  | pullAll |
+ |  | pullAllBy |
+ |  | pullAllWith |
+ |  | pullAt |
+random | random | random | random
+range | range | range |
+ |  | rangeRight |
+ |  | 3 rearg |
+reduce | reduce | reduce | reduce
+reduceRight | reduceRight | reduceRight | reduceRight
+reject | reject | reject |
+remove -> reject |  | remove |
+repeat |  | repeat | 6 repeat
+ |  | replace |
+rest | rest | rest |
+ | result | 15 result |
+reverse |  | reverse | reverse
+ |  | round |
+ |  | runInContext |
+sample -> shuffle | sample | sample |
+sampleSize -> shuffle |  | sampleSize |
+ |  | set |
+ |  | setWith |
+shuffle | shuffle | shuffle |
+size | size | size |
+slice |  | slice | slice
+ |  | snakeCase |
+some | some | some | some
+sortBy | sortBy | sortBy |
+ | sortedIndex | 4 sortedIndex |
+ |  | sortedIndexBy |
+ |  | sortedIndexOf |
+ |  | sortedLastIndex |
+ |  | sortedLastIndexBy |
+ |  | sortedLastIndexOf |
+ |  | sortedUniq |
+ |  | sortedUniqBy |
+ |  | split |
+ |  | spread |
+ |  | startCase |
+startsWith |  | startsWith | 6 startsWith
+ |  | stubArray |
+ |  | stubFalse |
+ |  | stubObject |
+ |  | stubString |
+ |  | stubTrue |
+ |  | subtract |
+ |  | sum |
+ |  | sumBy |
+tail -> rest |  | tail |
+take -> first |  | take |
+takeRight -> last |  | takeRight |
+ |  | takeRightWhile |
+ |  | takeWhile |
+ | tap | tap |
+2 template | template | template | 6 ES6/Backticks
+ |  | templateSettings |
+ |  | templateSettings.escape |
+ |  | templateSettings.evaluate |
+ |  | templateSettings.imports |
+ |  | templateSettings.imports._ |
+ |  | templateSettings.interpolate |
+ |  | templateSettings.variable |
+throttle | throttle | throttle |
+ |  | thru |
+times | times | times |
+toArray | toArray | toArray |
+ |  | toFinite |
+ |  | toInteger |
+ |  | toLength |
+ |  | toLower |
+ |  | toNumber |
+toPairs -> entries |  | toPairs |
+ |  | toPairsIn |
+ |  | toPath |
+ |  | toPlainObject |
+ |  | toSafeInteger |
+ |  | toString |
+ |  | toUpper |
+transform -> reduce |  | transform |
+trim |  | 5 trim | trim
+trimEnd |  | trimEnd | 6 trimEnd
+trimStart |  | trimStart | 6 trimStart
+ |  | 5 truncate |
+ |  | unary |
+union | union | union |
+ |  | unionBy |
+ |  | unionWith |
+uniq -> unique | uniq | uniq |
+ |  | uniqBy |
+ | uniqueId | 7 uniqueId |
+ |  | uniqWith |
+ |  | unset |
+unzip | unzip | unzip |
+ |  | unzipWith |
+ |  | update |
+ |  | updateWith |
+ |  | upperCase |
+ |  | upperFirst |
+values | values | values | values
+ |  | valuesIn |
+NODASH |  | VERSION |
+without | without | without |
+ |  | words |
+ | wrap | wrap |
+ |  | xor |
+ |  | xorBy |
+ |  | xorWith |
+zip | zip | zip |
+zipObject -> object |  | zipObject |
+ |  | zipObjectDeep |
+ |  | zipWith |
+14 ajax |  |  | 6 XHR/Fetch
+all -> every | all -> every |  |
+any -> some | any -> some |  |
+flat |  |  | 6 flat
+fromEntries |  |  |
+isArrayLike |  | isArrayLike |
+sort |  | | sort
+trimLeft -> trimStart |  | |
+trimRight -> trimEnd |  | |
+unique | unique -> uniq |  |
+ | compose |  |
+ | extendOwn |  |
+ | findWhere |  |
+ | mapObject |  |
+ | matcher |  |
+ | noop | 9 noop |
+ | restArguments |  |
+ | unescape | unescape |
+ | value | value |
+ | where |  |
+ | collect -> map |  |
+ | foldr -> reduceRight |  |
+ | detect -> find |  |
+ | select -> filter |  |
+ | methods -> functions |  |
+`}
+
+`#footnote1
+Underscore's `@un:flatten`@() defaults to `'depth of `'Infinity while LoDash's `@lo:flatten`@() and ES's `'flat() proposal (and NoDash's `#flat()) - to `'depth of 1.
+
+`#footnote2
+NoDash's `'template() syntax is not based on `[<%ERB%>`] but on `[{{Mustache.js}}`].
+
+`#footnote3
+`@sq@Sqimitive\Core::masker()`@ provides a similar functionality.
+
+`#footnote4
+`@sq@Sqimitive\Ordered::indexFor()`@ provides a similar functionality.
+
+`#footnote5
+Exists in Underscore.String: `@https://github.com/epeli/underscore.string/`@
+
+`#footnote6
+Not supported natively in any version of Internet Explorer.
+
+`#footnote7
+`@sq@Sqimitive\Core::unique()`@ provides a similar functionality (but doesn't prepend `'prefix to the result).
+
+`#footnote8
+NoDash's `#invoke() and Underscore's `@un:invoke`@() call a method on every object in an array parameter while LoDash's `@lo:invoke`@() accepts a single object and calls a method on it.
+
+`#footnote9
+`@sq@Sqimitive\Core::stub()`@ is the same.
+
+`#footnote10
+Underscore's `@un:mixin`@() extends Underscore's own functionality. LoDash's `@lo:mixIn`@() is similar to `@sq@Sqimitive\Core::mixIn()`@.
+
+`#footnote11
+Use `[instanceof`] to check for these types. For example: `[/0.*/ instanceof RegExp`].
+
+`#footnote12
+Underscore's `@un:isEqual`@() and LoDash's `@lo:isEqual`@() are very elaborate. NoDash simply defers to `[==`] so in NoDash `[_.isEqual([], []) === false`].
+
+`#footnote13
+`@sq@Sqimitive\Core::deepClone()`@ provides a similar functionality.
+
+`#footnote14
+NoDash's `#ajax() semantics is very similar to jQuery's `'ajax().
+
+`#footnote15
+`@sq@Sqimitive\Core::picker()`@ provides a similar functionality.
+
+`#footnote16
+NoDash's `#once() can be used like `@un:memoize`@()/`@lo:memoize`@() with dumb `'hashFunction/`'resolver, returning the same cached value regardless of arguments.
+
+`#footnote17
+LoDash's `@lo:at`@() supports complex string path notation (`[a[0].b.c`]).
+
+`#footnote18
+LoDash's `@lo:property`@() supports complex string path notation (`[a[0].b.c`]) while in NoDash's `#property() and Underscore's `@un:property`@() a string stands for a single key.
+
+`#footnote19
+LoDash's `@lo:flip`@() is very different: it wraps a function, inverting its argument order.
+
+`#footnote20
+Do not confuse `#escape() with the native `@o:escape`@() function used for URL encoding.
+
+`#footnote21
+Underscore's `@un:object`@() combines NoDash's `#object() (takes two lists: keys and values) and `#fromEntries() (takes one list: key-value pairs).
