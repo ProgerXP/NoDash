@@ -732,7 +732,7 @@
     },
     // Merges members of given objects into the first argument, overwriting
     // keys of earlier arguments with later ones.
-    //= object `'obj1
+    //= object first of given arguments
     //> objects `- only object-type arguments
     // ECMAScript equivalent: `@o:Object/assign`@. See also `#union(),
     // `#intersection().
@@ -948,7 +948,8 @@
     },
     // Replaces `[& < " '`] in `'value with equivalent HTML entitites.
     //= array`, object`, string
-    //> value array`, object`, string
+    //> value array/object members escaped recursively`, string`,
+    //  falsy assume `'''
     // The `'> is not escaped since it's not special unless your markup is
     // already broken (e.g. not using quotes for attributes). See
     // `@https://mathiasbynens.be/notes/ambiguous-ampersands`@ (thanks LoDash,
@@ -957,15 +958,20 @@
     //    _.escape(' & < " \' > ')    //=> ' &amp; &lt; &quot; &#39; > '
     //    _.escape(['a&b', '<c>d'])   //=> ['a&amp;b', '&lt;c>d']
     //    _.escape({a: '"b\''})       //=> {a: '&quot;b&#39;'}
+    //    _.escape([{a: '"b\''}])     //=> [{a: '&quot;b&#39;'}]
+    //    _.escape(null)              //=> ''
     // `]
     //* With jQuery you'd escape like so: `[$('<p>').text(value).html()`].
     //* Not to be confused with standard `@o:escape`@() used for URL encoding.
     escape: function (value) {
-      if (typeof value == 'string') {
-        var to = {'&': 'amp', '<': 'lt', '"': 'quot', "'": '#39'}
-        return value.replace(/&<"'/g, function (m) { return '&' + to[m] + ';' })
-      } else {
+      if (!value) {
+        return ''
+      } else if (typeof value == 'object') {
         return NoDash.map(value, NoDash.escape)
+      } else {
+        var to = {'&': 'amp', '<': 'lt', '"': 'quot', "'": '#39'}
+        return (value + '')
+          .replace(/[&<"']/g, function (m) { return '&' + to[m] + ';' })
       }
     },
     // Returns a string with all chararcters special within `'RegExp delimiters
@@ -2079,36 +2085,34 @@
     },
     // Converts a template `'str to a function that accepts variables and
     // returns a formatted string.
-    //= function accepting `[vars, opts`] `- see below
+    //= function accepting `[vars, opts`]`, string on `[options.source`]
     //> str string`,
     //  function take the contents of the first `[/**/`] comment`,
     //  Node take `'textContent `- the template
     //> options object`, omitted `- compilation options
     // Possible `'options keys:
     //> prepare object defaults for formatting variables and/or options (under
-    //  `'o)`, function receives caller-given `[vars, opt`] (as `'{} if falsy)
-    //  and returns an object with complete variables and options (may be
-    //  mutated)`, omitted
-    //> with bool`, null enable only if there exists a code `'ref `- if set,
-    //  members of `'vars can be referenced directly, not through `'v; such
-    //  templates are slower due to using JavaScript's `[with { }`]; non-code
-    //  `'ref work regardless of this (`'v is added automatically)
+    //  `'o)`, function receives caller-given `'vars with `'opts under `'o
+    //  (both as `'{} if falsy) and returns an object with complete variables
+    //  and options (may be mutated)`, omitted
+    //> source bool `- if set, returns a compiled JavaScript code string
+    //> with bool`, omitted = `'true `- if set, members of `'vars can be
+    //  referenced directly, not through `'v; such templates are slower due to
+    //  using JavaScript's `[with { }`]
     //> laxRef bool`, omitted = `'true `- if set, non-code `'ref
-    //  are resolved with `#property(), meaning they return the non-object
+    //  are resolved with `#at(), meaning they return the non-object
     //  value immediately, even if there are more path components (that triggers
     //  an error without `'laxRef, but is faster)
-    //> eval bool`, omitted = `'true `- if unset, fails to compile if there are
+    //> code bool`, omitted = `'true `- if unset, fails to compile if there are
     //  constructs allowing arbitrary code execution; in such case it should
-    //  be safe to pass `'str from untrusted input since it can only operate
-    //  on values given to the compiled function (unless there are custom
-    //  `'blocks)
+    //  be safe to pass `'str from untrusted input since it can only read
+    //  values given to the compiled function and from global `'window
+    //  (unless there are custom `'blocks)
     //> blocks object`, omitted = default `'if/`'for/etc. `- new `'custom or
     //  overridden standard `'if/`'for/etc.; key is the block's name
     //  (alphanumeric), value is a function receiving `[param, value, c`]:
-    //  `> param false if no `[:...`] given`, str `- part after `':; `'false
-    //     conveniently is `''' for cases when `[block`] and `[block:`] are
-    //     identical
-    //  `> value false no space given`, str `- part after space; on conflict
+    //  `> param null if no `[:...`] given`, str `- part after `': (may be blank)
+    //  `> value null no space given`, str `- part after space; on conflict
     //     with non-code `'echo the latter wins so add a colon for unambiguity:
     //     `[{{echo}}`] but `[{{block:}}`]
     //  `> c obj `- current compiler's state; keys:
@@ -2156,13 +2160,14 @@
     //* `'echo: emits value of a variable/property (not of global like `'window)
     //  or result of executing arbitrary code (if `'ref is not alphanumeric with
     //  periods). Without `'= the result is post-processed by `[o.escaper`]
-    //  (e.g. HTML-escaped). If `'ref is falsy, emits nothing.
-    //* `'conditional: emits the enclosed block only if `'ref is truthy (falsy
+    //  (e.g. HTML-escaped). If `'ref is `'null or `'undefined, emits nothing.
+    //* `'conditional: emits the enclosed block only if `'ref is truthy (or falsy
     //  with `':not).
     //* `'loop: emits the enclosed block once for every iteration. `'ref is
     //  given to `#forEach(). Optional `'pf specifies prefix for variables
-    //  inside the block that are by default `'v (value), `'k (key), `'i (index,
-    //  same as `'k if `'ref `#isArrayLike), `'vv (the `'ref).
+    //  inside the block that are by default `'m ("m"ember's value), `'k
+    //  ("k"ey), `'i ("i"ndex, same as `'k if `'ref `#isArrayLike), `'a ("a"ll,
+    //  the `'ref).
     //
     //  Only `'i exists outside of the block and is `'undefined prior to the first
     //  `'loop with that `'pf; after a `'loop it holds index of the last
@@ -2177,8 +2182,8 @@
     //      {{if ...}} {{for ...}} {{/for}} {{/if}}   - works
     //      {{if ...}} {{for ...}} {{/if}} {{/for}}   - fails to compile
     //  `]
-    //* Nesting `'{{ `'}} is not supported but you can use string escapes:
-    //  `[{{'}}'}}`] fails but `[{{'\x7d}'}}`] works.
+    //* Nested and multi-line `'{{ `'}} are not supported but you can use string
+    //  escapes: `[{{'}}\n'}}`] fails but `[{{'\\x7d\\n}'}}`] works.
     //
     // The returned compiled template function accepts these arguments:
     //> v object`, falsy = `'{} `- variables for access by `'ref
@@ -2194,52 +2199,63 @@
     //
     //?`[
     //    _.template('{{a.b.c}}')({})                   //=> ''
-    //    _.template('{{a.b.c}}', {laxRef: false})      // Error
+    //    _.template('{{a.b.c}}', {laxRef: false})()    // Error
+    //    _.template('{{a}}', {laxRef: false})()        // Error
+    //    _.template('{{v["a"]}}', {laxRef: false})()
+    //      //=> '' (v is always present)
+    //    _.template('{{a["b"]}}')()
+    //      // Error (laxRef only affects non-code ref)
     //    _.template('{{Math.random()}}')()             //=> 0.2446989
     //
     //    _.template('{{if Math.random() > 0.5}}win!{{/}}')()
     //      //=> 'win!' or ''
-    //    _.template('{{if Math.random > 0.5}}win!{{/}}')()
-    //      // Error (laxRef only affects non-code ref)
-    //    _.template('{{if Math.random > 0.5}}win!{{/}}')({
+    //    _.template('{{if Math.random > 1}}win!{{/}}')({
     //      Math: {random: 9000},
     //    })
     //      //=> 'win!'
     //
-    //    _.template('{{if Math.random}}win!{{/}}')({}, {laxRef: false})
-    //      // Error
-    //    _.template('{{if Math.random}}win!{{/}}')()
-    //      //=> ''
+    //    _.template('{{if Math.random}}win!{{/}}', {laxRef: false, with: false})({})
+    //      //=> 'win!'
     //    _.template('{{if:not Math.random}}win!{{/}}')()
-    //      //=> 'win!'
-    //    _.template('{{if Math.random}}win!{{/}}')({
-    //      Math: {random: 0},
-    //    })
     //      //=> ''
-    //    _.template('{{if Math.random}}win!{{/}}')({
-    //      Math: {random: -451},
-    //    })
-    //      //=> 'win!'
+    //    _.template('{{if Math.random}}win!{{/}}')({Math: {random: 0}})  //=> ''
+    //    _.template('{{Math.random}}')({Math: {random: -451}})     //=> '-451'
     //
-    //    _.template('{{document.title}}')()            //=> ''
-    //    _.template('{{document.title}}')({
-    //      document: {title: 'foo'},
-    //    })
-    //      //=> 'foo'
-    //    _.template('{{document.title}}')({
-    //      document: {title: 'foo'},
-    //    }, {with: false})
-    //      //=> 'foo'
-    //    _.template('{{document['title']}}')()
+    //    _.template('{{document.title}}')()
     //      //=> 'bar' (window.document.title)
-    //    _.template('{{document['title']}}')({
+    //    _.template('{{document.title}}')({
     //      document: {title: 'foo'},
     //    })
     //      //=> 'foo'
-    //    _.template('{{document['title']}}')({
+    //    _.template('{{v.document.title}}')({
     //      document: {title: 'foo'},
-    //    }, {with: false})
+    //    })
+    //      //=> 'foo'
+    //    _.template('{{document.title}}', {with: false})()
     //      //=> 'bar'
+    //    _.template('{{document.title}}', {with: false})({
+    //      document: {title: 'foo'},
+    //    })
+    //      //=> 'bar'
+    //    _.template('{{v.document.title}}', {with: false})({
+    //      document: {title: 'foo'},
+    //    })
+    //      //=> 'foo'
+    //
+    //    _.template('{{document["title"]}}')()
+    //      //=> 'bar'
+    //    _.template('{{document["title"]}}')({
+    //      document: {title: 'foo'},
+    //    })
+    //      //=> 'foo'
+    //    _.template('{{document["title"]}}', {with: false})({
+    //      document: {title: 'foo'},
+    //    })
+    //      //=> 'bar'
+    //    _.template('{{v.document["title"]}}', {with: false})({
+    //      document: {title: 'foo'},
+    //    })
+    //      //=> 'foo'
     // `]
     //
     //?`[
@@ -2256,7 +2272,7 @@
     //      <ul>
     //        {{for menu}}
     //          <li>
-    //            {{i+1}}. <a href="{{v.url}}">{{v.caption}}</a>
+    //            {{i+1}}. <a href="{{m.url}}">{{m.caption}}</a>
     //          </li>
     //        {{/for}}
     //      </ul>
@@ -2295,8 +2311,8 @@
     //  `[
     //    var f = _.template('{{a}}')
     //    var w = function (v, o) {
-    //      _.assign({}, v, {a: '&'})
-    //      _.assign({}, o, {escaper: _.escape})
+    //      v = _.assign({}, v, {a: '&'})
+    //      o = _.assign({}, o, {escaper: _.escape})
     //      return f(v, o)
     //    }
     //    w({a: '<'}, {escaper: null})    //=> '&amp;'
@@ -2309,10 +2325,10 @@
     //    f()         //=> 0.2446989
     //    f({r: -1})  //=> -1
     //
-    //    var f = _.template('{{r}}', {prepare: function (v, o) {
-    //      return {r: Math.random(), o: o}
+    //    var f = _.template('{{r}}', {prepare: function (v) {
+    //      return {r: Math.random(), o: v.o}
     //        // ignores all caller-given variables, keeps its options
-    //      return _.assign({}, v, {r: Math.random(), o: o})
+    //      return _.assign({}, v, {r: Math.random(), o: v.o})
     //        // overrides r's value, keeps other variables and all options
     //    }})
     //    f()         //=> 0.0682551
@@ -2334,7 +2350,7 @@
     //      {{for a}}
     //        a
     //      {{/for}}
-    //      {{if i == -1 && v.b}}
+    //      {{if i == -1 && b}}
     //        b
     //      {{elseif i == -1}}
     //        c
@@ -2342,23 +2358,24 @@
     //    ``)
     //
     //    f()                 //=> 'c'
-    //    f({b: true})        //=> 1
-    //    f({a: [1, 2, 3]})   //=> 'aaa'
+    //    f({b: true})        //=> 'b'
+    //    f({a: [1, 2, 3]})   //=> 'a a a'
     //  `]
     //
-    //? `'loop's variables shadow global ones by the same name; globals are
-    //  still accessible only with enabled `[options.with`].
-    //  In any case, use `':pf to avoid shadowing.
+    //? With enabled `[options.with`], `'loop's variables shadow global ones with
+    //  the same name but globals are still accessible through `[v.`].
+    //  Use `':pf to avoid shadowing. Assuming enabled `'with:
     //  `[
-    //      {{v.x}}                         // x of the global object
-    //      {{for v.y}} {{v.x}} {{/for}}    // x of the member being looped over
-    //      {{for v.y}} {{x}} {{/for}}
-    //        // if options.with is enabled, x is of the global object, else
-    //        // it's an error (lexRef = false) or ''
-    //      {{for:f v.y}} {{v.x}} {{fv.x}} {{/for}}
+    //      {{a}} {{v.a}}               // .a of the global variables object
+    //      {{v.v.a}}                   // .a property of a global variable .v
+    //      {{for y}} {{a}} {{v.a}} {{m.a}} {{v.m.a}} {{/for}}
+    //        // loop's .a (!), global .a variable, member's .a,
+    //        // .a property of a global variable .m
+    //      {{for:f y}} {{a}} {{fa}} {{m.a}} {{fm.a}} {{/for}}
+    //        // global .a variable, loop's .a, global .m's .a, member's .a
     //  `]
     //
-    //? Custom block:
+    //? Custom blocks:
     //  `[
     //    var sample = function (param, value, c) {
     //      return {start: '_.sample(' + c.ref(value) + ')'}
@@ -2367,64 +2384,77 @@
     //      ({items: ['a', 'b', 'c']})
     //        //=> 'a' or 'b' or 'c'
     //  `]
+    //  Removing whitespace outside of HTML tags (`[< >`]):
+    //  `[
+    //    var ws = function () {
+    //      return {start: '(""', end: '"").replace(/\\s(?=<|$)/g, "")'}
+    //    }
+    //    _.template('{{ws}} <abbr title="Oh"> {{/ws}} </abbr>', {blocks: {ws}})()
+    //        //=> '<abbr title="Oh"> </abbr>'
+    //
+    //    _.template(..., {..., source: true})
+    //    // Compiled to code (cleaned):
+    //    return (" <abbr title=\"Oh\"> ").replace(/\s(?=<|$)/g, "") + " </abbr>"
+    //  `]
     template: function (str, options) {
-      options = NoDash.assign({}, options, {with: null, laxRef: true,
-                                            code: true, blocks: {}})
+      options = NoDash.assign({with: true, laxRef: true, code: true}, options)
 
       options.blocks = NoDash.assign({
-        if: function (param, value, c) {
-          if (param == 'not') {
-            param = '!'
-          } else if (param) {
-            throw new Error('template: bad "if:' + param + '".')
+        if: function (param, value, c, ref) {
+          if (param && param != 'not') {
+            throw Error('template: bad "if:' + param + '".')
           }
-          return {start: '(' + param + c.ref(value) + '?""', end: ':"")'}
+          return {start: '(' + (param ? '!' : '') + (ref || c.ref)(value) + '?""',
+                  end: '"":"")'}
         },
-        elseif: function (param, value, c) {
-          if ((c.stack[0] || {}).type == 'for') {
-            param = (param === false ? '-' : param).match(/^(\w*|-)(:(.*))?$/)
-            var ref = function (s) {
-              return (param[1] == '-' ? c._lastFor : param[1]) + 'i==-1&&' + c.ref(s)
-            }
-            var res = object.blocks.if(param[3], value, {ref: ref})
-            res.start = c.stack.shift().end + '+' + res.start
-            res.type = 'if'
-            return res
-          } else if ((c.stack[0] || {}).type != 'if' || c.stack[0]._else) {
-            throw new Error('template: elseif: no preceding if or for.')
+        elseif: function (param, value, c, ref) {
+          var prev = c.stack[0] && !c.stack[0]._else && c.stack[0].type
+          if (prev == 'for') {
+            param = (param == null ? '-' : param).match(/^(\w*|-)(:(.*))?$/)
+            if (param[1] == '-') { param[1] = c._lastFor }
+            var res = options.blocks.if(param[3], value, c, function (s) {
+              return '(' + param[1] + 'i==-1&&' + (ref || c.ref)(s) + ')'
+            })
+            return NoDash.assign(res, {start: c.stack.shift().end + '+' + res.start,
+                                       type: 'if', _for: param[1]})
+          } else if (prev != 'if') {
+            throw Error('template: elseif: no preceding if or for.')
           } else {
-            var res = object.blocks.if.apply(this, arguments)
-            c.stack[0].end = res.end + stack[0].end
-            return {start: ':' + res.start}
+            if (c.stack[0]._for != null) {
+              arguments[3] = function (s) {
+                return '(' + c.stack[0]._for + 'i==-1&&' + (ref || c.ref)(s) + ')'
+              }
+              arguments.length++
+            }
+            var res = options.blocks.if.apply(this, arguments)
+            c.stack[0].end += ')'
+            return {start: '"":' + res.start}
           }
         },
         else: function (param, value, c) {
           if ((param && ((c.stack[0] || {}).type != 'for')) || value) {
-            throw new Error('template: else takes no arguments.')
+            throw Error('template: else takes no arguments.')
           } else {
-            var ce = NoDash.assign({}, c, {ref: function () { return 1 }})
-            return NoDash.assign(object.blocks.elseif(param, '', ce), {_else: true})
+            var res = options.blocks.elseif(param, '', c, function () { return 1 })
+            c.stack[0]._else = true   // may have been shift()ed.
+            return res
           }
         },
         for: function (pf, value, c) {
           if (!/^\w*$/.test(pf)) {
-            throw new Error('template: bad "for:' + pf + '".')
+            throw Error('template: bad "for:' + pf + '".')
           }
-          c._lastFor = pf
+          pf = c._lastFor = pf || ''
           return {
-            head: 'var ' + pf + 'i=-1;',
-            start: '(' + pf + 'i=0,' +
-                   '_.map(' + c.ref(value) + ',' +
-                   'function(' + pf + 'v,' + pf + 'k,' + pf + 'vv){' +
-                   pf + 'i++;return"',
-            end: '""}).join("")',
+            head:  'var ' + pf + 'i;',
+            start: '(' + pf + 'i=-1,' +
+                   '_.map(' + c.ref(value) + '||[],' +
+                   'function(' + pf + 'm,' + pf + 'k,' + pf + 'a){' +
+                   pf + 'i++;return""',
+            end:   '""}).join(""))',
           }
         },
       }, options.blocks)
-
-      var dotted = function (s, delim) {
-        return '["' + s.replace(/\./g, '"' + delim + '"') + '"]'
-      }
 
       var c = {
         options: options,
@@ -2432,23 +2462,30 @@
         _lastFor: null,
 
         ref: function (s) {
-          if (!s || !/\S/.test(s)) { throw new Error('template: blank ref.') }
-          if (/^[\w.]+$/.test(s)) {
-            s = options.laxRef
-              ? '_.at(v, ' + dotted(s, ',') + ')' : 'v' + dotted(s, '][')
+          if (!(s = s.trim())) { throw Error('template: blank ref.') }
+          var m
+          if (m = s.match(/^(\w+)((\.\w+)*)$/)) {
+            s = '["' + m[2].substr(1).replace(/\./g,
+                    (options.laxRef ? '","' : '"]["')) + '"]'
+            if (options.laxRef) {
+              s = '(typeof ' + m[1] + '=="undefined"?undefined:' +
+                  (m[2] ? '_.at(' + m[1] + ',' + s + ')' : m[1]) + ')'
+            } else {
+              s = m[1] + (m[2] ? s : '')
+            }
           } else if (!options.code) {
-            throw new Error('template: code refs prohibited.')
+            throw Error('template: code refs prohibited.')
           } else {
-            haveCode = s = '(' + s + ')'
+            s = '(' + s + ')'
           }
           return s
         },
       }
 
-      var haveCode = false
+      var head = ''
       var blocks = NoDash.keys(options.blocks).join('|')
-      var blockStart  = new RegExp('^(' + blocks + ')(:\w*)?(\s+(.*))?$')
-      var blockEnd    = new RegExp('^\\/\s*(' + blocks + ')?\s*$')
+      var blockStart  = new RegExp('^(' + blocks + ')(:\\S*)?(\\s+(.*))?$')
+      var blockEnd    = new RegExp('^\\/\\s*(' + blocks + ')?\\s*$')
 
       if (str instanceof Function) {
         // RegExp /.../s flag is not supported in FF.
@@ -2457,66 +2494,63 @@
         str = str.textContent
       }
 
-      str =
-        'return"' +
-        str.replace(/(\\(\\\\)*)\{\{|(\\\\)*\{\{\s*(.*?)\}\}|(["\\])/g, function (m) {
-          if (m[1]) {
-            var res = m[0].substr(1)
-          } else if (m[5]) {    // " or \.
-            var res = '\\' + m[0]
-          } else {
-            var res = m[3] + '"+'
-            var inside = m[4]
-            if (inside[0] == '=') {
-              res += '(' + c.ref(inside.substr(1)) + '||"")'
-            } else if (m = inside.match(blockStart)) {
-              var block = options.blocks[m[1]](m[2] ? m[2].substr(1) : false,
-                                               m[3] ? m[4] : false, c)
-              str += block.head || ''
-              res += block.start || ''
-              block.type = block.type || m[1]
-              block.end && c.stack.unshift(block)
-            } else if (m = inside.match(blockEnd)) {
-              if (!c.stack.length || (m[1] && c.stack[0].type != m[1])) {
-                var stack = c.stack.length ? '{{/' + c.stack[0].type + '}}' : 'no block'
-                throw new Error('template: ' + m[0] + ' expected, ' + stack + ' found.')
-              }
-              res += c.stack.shift().end
-            } else {
-              res += '(o.escaper?o.escaper(' + c.ref(inside) + '||""):' +
-                     c.ref(inside) + '||"")'
+      str = str.replace(/(\\(\\\\)*)\{\{|((?:\\\\)*)\{\{\s*(.*?)\}\}|(["\\\n])/g, function () {
+        var m = arguments
+        if (m[1]) {
+          var res = m[0].substr(1)
+        } else if (m[5]) {    // " or \.
+          var res = '\\' + m[0]
+        } else {
+          var res = m[3] + '"+'
+          var inside = m[4]
+          if (m = inside.match(blockStart)) {
+            var block = options.blocks[m[1]](m[2] ? m[2].substr(1) : null,
+                                             m[3] ? m[4] : null, c)
+            head += block.head || ''
+            res += block.start || ''
+            block.type = block.type || m[1]
+            block.end && c.stack.unshift(block)
+          } else if (m = inside.match(blockEnd)) {
+            if (!c.stack.length || (m[1] && c.stack[0].type != m[1])) {
+              throw Error('template: /' + c.stack[0].type + ' expected, {{' + m[0] + '}} found.')
             }
-            res += '+"'
+            res += c.stack.shift().end
+          } else {
+            res += '((T=' + c.ref(inside.substr(inside[0] == '=')) + ')==null?"":' +
+                   (inside[0] == '=' ? 'T' : 'E(T)') + ')'
           }
-          return res
-        }) +
-        '"'
+          res += '+"'
+        }
+        return res
+      })
 
       if (c.stack.length) {
-        var stack = NoDash.pick(c.stack, 'type').join('}} {{/')
-        throw new Error('template: unclosed {{/' + stack + '}}.')
+        str = NoDash.pluck(c.stack, 'type').join('}} <- {{')
+        throw Error('template: unclosed {{' + str + '}}.')
       }
 
-      if (options.with == null ? haveCode : options.with) {
-        str = 'with(v){' + str + '}'  // str may contain "var".
-      }
+      str = head + 'return"' + str + '"'
+      // str (head) may contain "var".
+      if (options.with) { str = 'with(v){' + str + '}' }
 
-      if (!options.defaults) {
-        var prepare = function (v, o) { return v.o = o, v }
-      } else if (typeof options.defaults != 'function') {
-        var prepare = function (v, o) {
-          return NoDash.assign({}, options.defaults, v,
-                               {o: NoDash.assign({}, options.defaults.o, o)})
+      if (!options.source) {
+        var def = options.prepare
+        if (def && (typeof def != 'function')) {
+          options.prepare = function (v) {
+            return NoDash.assign({}, def, v, {o: NoDash.assign({}, def.o, v.o)})
+          }
         }
-      } else {
-        var prepare = options.defaults
+
+        // It appears that strict mode isn't applied to such functions even
+        // though it applies to eval, neither when they're created nor called.
+        // But unlike eval they have access to the global scope only.
+        str = 'v=v||{};v.o=o||{};v=p?p(v):v;o=v.o;' +
+              'var T,E=o.escaper||function(s){return s};' + str
+        str = (new Function('p,_,v,o', str))
+          .bind(undefined, options.prepare, NoDash)
       }
 
-      // It appears that strict mode isn't applied to such functions even
-      // though it applies to eval, neither when they're created nor called.
-      // But unlike eval such functions have access to the global scope only.
-      return (new Function('p, _, v, o', 'v=p(v||{},o||{});o=v.o;' + str))
-        .bind(undefined, prepare, NoDash)
+      return str
     },
   }
 
