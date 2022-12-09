@@ -29,6 +29,6 @@ php "%CHEM_PHP%" --esprima-node="%NODE%" -p=docs -z ^
   --extchem-lo=https://lodash.com/[docs/#%%r] ^
   --extchem-sq=https://squizzle.me/js/sqimitive/ ^
   --extchem-o=https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/%%u ^
-  --extchem-mdn=https://developer.mozilla.org/en-US/docs/Web/API/%%u ^
-  nodash.js ^
+  --extchem-mdn=https://developer.mozilla.org/en-US/docs/Web/%%u ^
+  main.js extra.js ^
   COMPATIBILITY.chem -c=COMPATIBILITY.php %*

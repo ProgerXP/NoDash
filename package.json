@@ -1,8 +1,8 @@
 {
-  "name": "nodash",
-  "main": "nodash.js",
-  "version": "0.9.0",
-  "homepage": "http://squizzle.me/js/nodash",
+  "name": "squizzle-nodash",
+  "main": "main.js",
+  "version": "0.10.0",
+  "homepage": "https://squizzle.me/js/nodash",
   "repository": {
     "type": "git",
     "url": "git@github.com:ProgerXP/NoDash.git"
@@ -10,12 +10,13 @@
   "bugs": {
     "url": "https://github.com/ProgerXP/NoDash/issues"
   },
-  "author": "Proger_XP <proger.xp@gmail.com> (http://proger.me)",
-  "description": "A terse utility library based on ES5 features.",
+  "author": "Proger_XP <proger.xp@gmail.com> (https://proger.me)",
+  "description": "A terse utility library based on ES5+ features.",
   "dependencies": {
   },
   "files": [
-    "nodash.js",
+    "main.js",
+    "extra.js",
     "nodash.min.js",
     "nodash.min.js.map",
     "README.txt",

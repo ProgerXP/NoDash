@@ -1,0 +1,154 @@
+Migrating from 0.9 to 0.10
+==========================
+
+0.10 is a bug fixing release with new functions and breaking changes.
+
+Improvements and bug fixes:
+
+  * trim(), trimStart(), trimEnd() don't endlessly loop on certain array values
+  * These functions now call ECMAScript equivalents if available:
+    flat(), entries(), values(), repeat(), sign()
+  * sort(), reverse(), fill() now return copy of array value rather than
+    mutate it, in line with other NoDash functions but unlike ECMAScript
+  * indexOf(), lastIndexOf(), includes() now correctly work for string value
+    with member.length of non-1
+  * ...and count negative fromIndex from the string's end, in line with array
+    value but unlike ECMAScript
+  * include({'-1': v, ...}, v) no longer returns false
+  * flat() now correctly works on object value
+  * startsWith(), endsWith() now correctly work on string value
+  * ...or when startIndex/endIndex is not given
+  * ...and treat negative startIndex/endIndex as 0, in line with ECMAScript
+    (previously behaviour was undefined)
+  * padStart(), padEnd() now cast non-array value to string
+  * padEnd() now uses ' ' default pad value rather than 'undefined'
+  * Added a note about escaping content of <script>, <template> and <style>
+    to escape()'s documentation (_.escape() *cannot* escape it)
+  * isArrayLike() now returns true for empty string value
+  * isEmpty() returns true for falsy value and doesn't fail on null/undefined
+  * max(), min() cast result of func or value's member to number, in line with
+    Math.max()/min()
+  * random() now uses range of arg..0 if arg is negative
+  * ...and casts min to number
+  * ...and has all shortcut call forms call _.random() to allow overriding PRNG
+  * toArray() now returns [value] not only for string value but for any
+    non-object and for null (previously would fail)
+  * partition() now respects given cx (func's call context)
+  * intersection(), difference() now correctly work in IE and on object value
+  * Fixed unique() not removing duplicates and failing on object value
+  * Fixed undeclared variable reference in unzip()
+  * chunk() no longer loops on negative length; treats length of 0 as 0, not 1
+  * ...and correctly builds returned value
+  * Fixed range()'s result being 1 element shorter
+  * NoDash aliases now respect NoDash method overrides
+  * ajax() does not add Content-Type on object data (previously request'd fail)
+
+Changes in template():
+
+  * Returned function and options.prepare no longer take options as 2nd argument
+  * Added new options.backslash option to merge lines
+  * Added new loop:*[var] star syntax to pass forceObject to _.forEach()
+  * loop now forces iteration order for objects based on key sorting
+  * New c.extra field and _x variable for passing data to compiled function
+  * Renamed internal p variable in compiled function to _p
+  * for now only treats undefined/null/false as empty list rather than all falsy
+  * Escaping is now done for " \ \n (as before) and for all characters below
+    ASCII 32, and now produces \xXX rather than \<raw char>
+
+New features:
+
+  * Added _.forceObject variable to override automatic isArrayLike detection
+  * Added new functions: sum(), redraw(), sign(), format() (in extra.js)
+  * trim(), trimStart(), trimEnd() allow RegExp blank for selective trimming
+  * first(), last(), initial(), rest() now accept string value
+  * throttle() now accepts options (leading, trailing), in line with Underscore
+  * Returned functions of throttle() and debounce() now have cancel() method
+
+Breaking changes:
+
+  * Renamed nodash.js to main.js
+    => if using npm and require('squizzle-nodash'), code will continue to function
+    => if using Require.js, instead of:
+           define(['nodash/nodash'], function (_) { ... })
+           var _ = require('nodash/nodash')
+       do:
+           define(['nodash/main'], function (_) { ... })
+           var _ = require('nodash/main')
+    => if using <script>, instead of:
+           <script src="nodash/nodash.js"></script>
+       do:
+           <script src="nodash/main.js"></script>
+
+  * Moved ajax() and template() to extra.js
+    => if using <script>, extra.js extends NoDash and _ so code will function
+    => if using npm or Require.js, update require():
+           var NoDashExtra = require('squizzle-nodash/extra')
+           define(['nodash/extra'], function (NoDashExtra) { ... })
+       then, update references to ajax() and template() in your code:
+           NoDashExtra.ajax(...)
+    => if using npm or Require.js, alternatively combine both into one object:
+           var NoDash = require('squizzle-nodash/main')
+           var NoDashExtra = require('squizzle-nodash/extra')
+           var _ = NoDash.assign({}, NoDash, NoDashExtra)
+
+           define(['nodash/main', 'nodash/extra'], function (NoDash, NoDashExtra) {
+             var _ = NoDash.assign({}, NoDash, NoDashExtra)
+           })
+    => if using npm or Require.js, alternatively mutate nodash/main:
+           var _ = NoDash.assign(NoDash, NoDashExtra)
+
+  * Renamed hasOwn() to has() (previously has() was its alias; no longer exists)
+      => instead of:
+           _.hasOwn({}, 'toString')
+       do:
+           _.has({}, 'toString')
+
+  * indexOf(), lastIndexOf() now return undefined for object value (previously
+    returned -1 that could be mistaken for the located key)
+
+    => instead of:
+           _.indexOf({...}, ...) == -1
+           _.indexOf({...}, ...) >= 0
+       do:
+           _.indexOf({...}, ...) === undefined
+           _.indexOf({...}, ...) != null
+
+  * flat() now removes sparse slots, in line with Array flat()
+
+  * size() now doesn't count sparse slots
+      => instead of:
+           _.size([1, , 3])
+       do:
+           [1, , 3].length
+
+  * escape() returns empty string only for null and undefined rather than for
+    any falsy value
+
+    => instead of:
+           _.escape(false)        //=> ''
+           _.escape(0)            //=> ''
+       do:
+           _.escape(false + '')   //=> 'false'
+           _.escape(0 + '')       //=> '0'
+
+  * once() stops calling func if it throws, in line with Underscore and LoDash
+
+  * reduce() now throws if given an empty object value and no initial argument
+    (previously it would return undefined), in line with Array reduce()
+
+  * As mentioned above, template()'s function and options.prepare no longer take
+    options as 2nd argument, the internal p variable is now _p and for treats
+    fewer value types as an empty list
+
+  * These functions no longer accept object value:
+    startsWith(), endsWith(),
+    trim(), trimStart(), trimEnd() - these also no longer accept object blank
+
+  * These functions now throw an exception if given an object value:
+    reduceRight(), reverse(), lastIndexOf()
+    indexOf() - throws only if fromIndex is given
+
+
+---
+Squizzle ♥ it
+https://squizzle.me

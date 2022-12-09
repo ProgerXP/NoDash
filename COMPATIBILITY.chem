@@ -17,7 +17,7 @@ assign | assign -> extendOwn | assign | assign
 17 at |  | at |
  |  | attempt |
  | before | before |
-bind | bind | bind | bind
+22 bind | bind | bind | bind
  | bindAll | bindAll |
  |  | bindKey |
  |  | camelCase |
@@ -88,6 +88,7 @@ flip |  | 19 flip |
  |  | flow |
  |  | flowRight |
 forEach | forEach -> each | forEach | forEach
+format | 23 sprintf |  |
  |  | forEachRight |
  |  | forIn |
  |  | forInRight |
@@ -100,8 +101,8 @@ fromPairs -> fromEntries | 21 object | fromPairs |
 groupBy | groupBy | groupBy |
  |  | gt |
  |  | gte |
-has -> hasOwn | has | has |
-hasOwn |  |  | hasOwnProperty
+has | has | has |
+ |  |  | hasOwnProperty
  |  | hasIn |
 head -> first |  | head |
  | identity | identity |
@@ -118,7 +119,7 @@ invert -> flip | invert | invert |
 invoke | invoke | 8 invoke |
  |  | invokeMap |
 isArguments | isArguments | isArguments |
-isArray -> instanceof Array | isArray | isArray |
+isArray -> Array.isArray | isArray | isArray | isArray
  |  | isArrayBuffer |
  |  | isArrayLikeObject |
  | isBoolean | isBoolean |
@@ -202,7 +203,7 @@ padEnd |  | padEnd | 6 padEnd
 padStart |  | padStart | 6 padStart
 pairs -> entries | pairs |  |
  |  | parseInt |
-partial -> bind | partial | partial |
+22 partial -> bind | partial | partial |
  |  | partialRight |
 partition | partition | partition |
 pick | pick | pick |
@@ -240,11 +241,12 @@ rest | rest | rest |
 reverse |  | reverse | reverse
  |  | round |
  |  | runInContext |
-sample -> shuffle | sample | sample |
+sample | sample | sample |
 sampleSize -> shuffle |  | sampleSize |
  |  | set |
  |  | setWith |
 shuffle | shuffle | shuffle |
+sign -> Math.sign | | | sign
 size | size | size |
 slice |  | slice | slice
  |  | snakeCase |
@@ -268,7 +270,7 @@ startsWith |  | startsWith | 6 startsWith
  |  | stubString |
  |  | stubTrue |
  |  | subtract |
- |  | sum |
+sum |  | sum |
  |  | sumBy |
 tail -> rest |  | tail |
 take -> first |  | take |
@@ -340,8 +342,8 @@ flat |  |  | 6 flat
 fromEntries |  |  |
 isArrayLike |  | isArrayLike |
 sort |  | | sort
-trimLeft -> trimStart |  | |
-trimRight -> trimEnd |  | |
+trimLeft -> trimStart |  | | trimLeft -> trimStart
+trimRight -> trimEnd |  | | trimRight -> trimEnd
 unique | unique -> uniq |  |
  | compose |  |
  | extendOwn |  |
@@ -361,10 +363,10 @@ unique | unique -> uniq |  |
 `}
 
 `#footnote1
-Underscore's `@un:flatten`@() defaults to `'depth of `'Infinity while LoDash's `@lo:flatten`@() and ES's `'flat() proposal (and NoDash's `#flat()) - to `'depth of 1.
+Underscore's `@un:flatten`@() defaults to `'depth of `'Infinity while LoDash's `@lo:flatten`@() and ES' `'flat() proposal (and NoDash's `#flat()) - to `'depth of 1.
 
 `#footnote2
-NoDash's `'template() syntax is not based on `[<%ERB%>`] but on `[{{Mustache.js}}`].
+NoDash's `#template() syntax is not based on `[<%ERB%>`] but on `[{{Mustache.js}}`].
 
 `#footnote3
 `@sq@Sqimitive\Core::masker()`@ provides a similar functionality.
@@ -394,10 +396,10 @@ Underscore's `@un:mixin`@() extends Underscore's own functionality. LoDash's `@l
 Use `[instanceof`] to check for these types. For example: `[/0.*/ instanceof RegExp`].
 
 `#footnote12
-Underscore's `@un:isEqual`@() and LoDash's `@lo:isEqual`@() are very elaborate. NoDash simply defers to `[==`] so in NoDash `[_.isEqual([], []) === false`].
+Underscore's `@un:isEqual`@() and LoDash's `@lo:isEqual`@() are very elaborate. NoDash simply defers to `[==`] so in NoDash `[_.isEqual([], []) === false`] while `[_.isEqual([], '') === true`].
 
 `#footnote13
-`@sq@Sqimitive\Core::deepClone()`@ provides a similar functionality.
+`@sq@Sqimitive\Core::deepClone()`@ and `@sq@Sqimitive\Core::deepCloner()`@ (compiled version thereof) provide a similar functionality.
 
 `#footnote14
 NoDash's `#ajax() semantics is very similar to jQuery's `'ajax().
@@ -422,3 +424,11 @@ Do not confuse `#escape() with the native `@o:escape`@() function used for URL e
 
 `#footnote21
 Underscore's `@un:object`@() combines NoDash's `#object() (takes two lists: keys and values) and `#fromEntries() (takes one list: key-value pairs).
+
+`#footnote22
+NoDash's `#bind() recognizes `'undefined context to keep caller-provided `'this while Underscore's and LoDash's assume `'globalThis, like `'window.
+
+Underscore's `@un:partial`@() and LoDash's `@lo:partial`@() support placeholder arguments (`'_) but `#bind() doesn't, so `#partial() alias is not fully compatible.
+
+`#footnote23
+Used to exist in Underscore.String: `@https://github.com/epeli/underscore.string/`@, was deprecated in favour of `@https://npmjs.org/package/sprintf-js`@.
