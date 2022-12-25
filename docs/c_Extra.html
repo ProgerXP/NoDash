@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html data-root="" data-entity='{"type":"class","id":917,"name":"Extra","start":{"line":44,"column":2,"offset":1521},"end":{"line":1108,"column":2,"offset":45763},"forced":true,"modifiers":[],"file":"extra.js"}'>
+  <head>
+    <meta charset="utf-8">
+    <title>Extra Class in NoDash</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <script>orphus = {action: 'https://proger.me/orphus.php'}</script>
+    <script src="https://proger.me/orphus.js"></script>
+
+    
+<nav class="qnbar">
+  <a href="#" class="qnbar__locate" title="Hotkey: Alt+E">&larr; Locate</a>
+  <a href="#">Top</a> of Extra  (<a href="?noframe" target="_blank">no frame</a>)
+          <a class="qnbar__section"
+       title=""
+       href="#Extra--if">
+      Methods</a>
+  </nav>
+
+  <div class="cp">
+    <h1 class="entity-header">
+      <span class="entity-header__type">
+        Class
+      </span>
+            <span class="entity-header__name">
+        Extra      </span>
+    </h1>
+
+    <code class="code_block">class Extra</code>
+
+    <div class="entity-info">
+      <div class="entity-info__synopsis fmt">
+        
+These functions are provided by <code>nodash/extra</code>. In browser context they
+are part of the main <code class="chemdoc__id">_</code>/<code class="chemdoc__id">NoDash</code> object<span class="chemdoc__ellipsis">…</span>      </div>
+
+      <p class="entity-info__file">
+        Defined in:
+        extra.js, <a href="https://github.com/ProgerXP/NoDash/blob/e10d515810e1b76a8f102af0af0cf83e5326cdf8/extra.js#L45-L45" target="_blank">line 45</a>      </p>
+
+          </div>
+
+          <fieldset class="cp-desc fmt">
+        <legend>
+          Description
+          (<a href="#Extra--de">skip</a>)
+        </legend>
+        <p>
+These functions are provided by <code>nodash/extra</code>. In browser context they
+are part of the main <code class="chemdoc__id">_</code>/<code class="chemdoc__id">NoDash</code> object.</p><p>This module depends on NoDash by default but it can also work with
+Underscore or LoDash. See <a href="https://squizzle.me/js/sqimitive/map.html#-deps" class="chemdoc__custom-link chemdoc__link-extchem chemdoc__link-extchem-sq" target="_blank">sq:start#deps</a> on how to override this
+dependency (except the NPM’s <code class="chemdoc__id">override</code> method won’t work because <code class="chemdoc__id">extra</code>
+uses a dependency on self). An example for Require.js:
+<pre><code class="chemdoc__block prism language-javascript match-braces">requirejs.config({
+  map: {
+    'nodash/extra': {
+      'nodash/main': 'lodash'
+    }
+  }
+})</code></pre></p>      </fieldset>
+      <a id="Extra--de"></a>
+    
+            <h2 id="Extra--if"
+            class="cp-member__group-header">
+          Methods        </h2>
+        <dl>
+                      <dt id="Extra--ifajax"
+                data-entity='{"type":"func","id":918,"name":"ajax","start":{"line":143,"column":4,"offset":6157},"end":{"line":226,"column":4,"offset":8752},"forced":null,"modifiers":[],"file":"extra.js"}'
+                class="cp-member__header">
+              <b>ajax</b>
+                              (
+                  options                )
+                          </dt>
+            <dd class="cp-member__info">
+                                            <div class="fmt"><p>Performs a remote request using <code class="chemdoc__id">XMLHttpRequest</code>, offering a subset of
+jQuery’s <code>ajax()</code> API.</p><table class="chemdoc__entity-table chemdoc__entity-type">
+<caption>Result Types</caption>
+<thead>
+  <tr>
+    
+    <th>Types</th>
+    <th>Notes</th>
+  </tr>
+</thead>
+<tbody><tr class="chemdoc__first"><td>XMLHttpRequest </td><td rowspan="1" colspan="1"> The <code class="chemdoc__id">xhr</code></td></tr></table><table class="chemdoc__entity-table chemdoc__entity-args">
+<caption>Arguments</caption>
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Types</th>
+    <th>Notes</th>
+  </tr>
+</thead>
+<tbody><tr class="chemdoc__first"><th rowspan="1">options</th><td>object</td><td rowspan="1" colspan="1"></td></tr></table><p>Possible <code class="chemdoc__id">options</code> keys:</p><table class="chemdoc__entity-table chemdoc__entity-args">
+<caption>Arguments</caption>
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Types</th>
+    <th>Notes</th>
+  </tr>
+</thead>
+<tbody><tr class="chemdoc__first"><th rowspan="1">url</th><td>str</td><td rowspan="1" colspan="1"></td></tr><tr class="chemdoc__first"><th rowspan="1">type</th><td>str </td><td rowspan="1" colspan="1"> <code class="chemdoc__id">GET</code> by default.</td></tr><tr class="chemdoc__first"><th rowspan="2">data</th><td>str</td><td rowspan="2" colspan="1"> Request data for <code class="chemdoc__id">POST</code>, etc.; useful object types
+are <a href="https://developer.mozilla.org/en-US/docs/Web/API/FormData" class="chemdoc__custom-link chemdoc__proto-mdn" target="_blank">mdn:API/FormData</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/API/Blob" class="chemdoc__custom-link chemdoc__proto-mdn" target="_blank">mdn:API/Blob</a> and
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams" class="chemdoc__custom-link chemdoc__proto-mdn" target="_blank">mdn:API/URLSearchParams</a> (not in IE).</td></tr><tr><td> object </td></tr><tr class="chemdoc__first"><th rowspan="1">dataType</th><td>str </td><td rowspan="1" colspan="1"> Type of <code>xhr.response</code>, from standard
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequestResponseType" class="chemdoc__custom-link chemdoc__proto-mdn" target="_blank">mdn:API/XMLHttpRequestResponseType</a>; <code class="chemdoc__id">text</code> by default; other useful
+types are <code class="chemdoc__id">document</code> (for HTML and XML), <code class="chemdoc__id">json</code>, <code class="chemdoc__id">arraybuffer</code> and
+<code class="chemdoc__id">blob</code></td></tr><tr class="chemdoc__first"><th rowspan="1">context</th><td>object </td><td rowspan="1" colspan="1"> Calling context for below callbacks.</td></tr><tr class="chemdoc__first"><th rowspan="1">beforeSend</th><td>function </td><td rowspan="1" colspan="1"> Called before <code>xhr.open()</code>; receives <code class="chemdoc__id">xhr</code> and
+<code class="chemdoc__id">options</code> (mutable, affects internal copy, not given <code class="chemdoc__id">options</code>); if
+returns <code>=== false</code> then the request is not performed and <code class="chemdoc__id">error</code> is
+called without giving <code class="chemdoc__id">e</code> (imitates <code>abort()</code>).</td></tr><tr class="chemdoc__first"><th rowspan="1">success</th><td>function </td><td rowspan="1" colspan="1"> Called when response has arrived; receives <code class="chemdoc__id">xhr</code> and
+<code class="chemdoc__id">e</code><p>Warning: if <code class="chemdoc__id">dataType</code> is <code class="chemdoc__id">json</code>, responses being empty or the string
+“null” trigger <code class="chemdoc__id">success</code> with <code class="chemdoc__id">response</code> set to <code class="chemdoc__id">null</code>.</p></td></tr><tr class="chemdoc__first"><th rowspan="1">error</th><td>function </td><td rowspan="1" colspan="1"> Called on a request or response error, and also on
+<code class="chemdoc__id">beforeSend</code> and <code>xhr.abort()</code>; receives <code class="chemdoc__id">xhr</code> (always) and <code class="chemdoc__id">e</code> (only
+if not on <code class="chemdoc__id">beforeSend</code>).</td></tr><tr class="chemdoc__first"><th rowspan="1">complete</th><td>function </td><td rowspan="1" colspan="1"> Called after completion, successful or not;
+receives <code class="chemdoc__id">xhr</code> and <code class="chemdoc__id">e</code></td></tr><tr class="chemdoc__first"><th rowspan="1">progress</th><td>function </td><td rowspan="1" colspan="1"> Called during response transmission; receives <code class="chemdoc__id">xhr</code>
+and <code class="chemdoc__id">e</code> where useful <code class="chemdoc__id">e</code> properties are:<table class="chemdoc__entity-table chemdoc__entity-args">
+<caption>Arguments</caption>
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Types</th>
+    <th>Notes</th>
+  </tr>
+</thead>
+<tbody><tr class="chemdoc__first"><th rowspan="1">lengthComputable</th><td>bool</td><td rowspan="1" colspan="1"></td></tr><tr class="chemdoc__first"><th rowspan="1">loaded</th><td>int bytes</td><td rowspan="1" colspan="1"></td></tr><tr class="chemdoc__first"><th rowspan="1">total</th><td>int bytes </td><td rowspan="1" colspan="1"> Or 0.</td></tr></table></td></tr><tr class="chemdoc__first"><th rowspan="1">timeout</th><td>int milliseconds </td><td rowspan="1" colspan="1"> If exceeded, request <code class="chemdoc__id">error</code>-s with the
+<code class="chemdoc__id">status</code> of 0.</td></tr><tr class="chemdoc__first"><th rowspan="1">headers</th><td>object </td><td rowspan="1" colspan="1"> Members can be strings or arrays; if missing, assumed
+<code>X-Requested-With: XMLHttpRequest</code> (for compatibility with jQuery’s
+<code>ajax()</code>).<p><code>Content-Type: application/x-www-form-urlencoded</code> is added if <code class="chemdoc__id">type</code>
+is not <code class="chemdoc__id">GET</code> and <code class="chemdoc__id">data</code> is not an object (browsers set the correct
+<code>Content-Type</code> automatically if it’s an object).</p><p>For CORS, custom headers like <code>X-Requested-With</code> (but not
+<code>Content-Type</code>) mandate the preflight request. Give <code class="chemdoc__id">headers</code> of <code>{}</code>
+to avoid it. Details:
+<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#simple_requests" class="chemdoc__custom-link chemdoc__proto-https" target="_blank">https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#simple_requests</a>.</p></td></tr><tr class="chemdoc__first"><th rowspan="1">username</th><td>str </td><td rowspan="1" colspan="1"> For HTTP Basic Authentication.</td></tr><tr class="chemdoc__first"><th rowspan="1">password</th><td>str </td><td rowspan="1" colspan="1"> For HTTP Basic Authentication.</td></tr></table><p>It is guaranteed that, per given <a href="c_Extra.html#Extra--ifajax" class="chemdoc__anchor-link chemdoc__link-entity member-fg member-fg_func mmods-fg " data-if-entity="917 chemdoc__link-entity-cur">ajax()</a> call:</p><ul><li>exactly one of <code>success or error</code> and one <code>complete</code> is called</li><li><code>success</code> is called on a 200-299 <code class="chemdoc__id">status</code> and <code class="chemdoc__id">responseType</code> matching
+<code class="chemdoc__id">dataType</code> (the latter is browser-dependent and not very reliable)</li><li><code>complete</code> is called after <code>success or error</code>, even if the latter
+has thrown an exception (it’s re-thrown after <code class="chemdoc__id">complete</code> provided it
+didn’t throw another one)</li><li><code>progress</code> is never called after calling <code>success or error</code></li></ul><p>ECMAScript equivalents: <a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest" class="chemdoc__custom-link chemdoc__proto-mdn" target="_blank">mdn:API/XMLHttpRequest</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API" class="chemdoc__custom-link chemdoc__proto-mdn" target="_blank">mdn:API/Fetch_API</a>.</p><fieldset class="chemdoc__example"><legend>Example</legend><pre><code class="chemdoc__block prism language-javascript match-braces">_.ajax({
+  url: 'form.php',
+  type: 'POST',
+  data: new FormData(document.querySelector('form')),
+})
+
+_.ajax({
+  url:          'some.json',
+  dataType:     'json',
+  timeout:      5000,  // 5 seconds
+  headers:      {},    // remove X-Requested-With
+  beforeSend:   () =&gt; $('#loading').show()
+  complete:     () =&gt; $('#loading').hide()
+  success:      xhr =&gt; alert(xhr.response),
+  error:        (xhr, e) =&gt; alert(xhr.statusText),
+  progress:     (xhr, e) =&gt; $('progress').attr({
+    max: e.total,
+    value: e.lengthComputable &amp;&amp; e.total
+  }),
+})</code></pre></fieldset></div>
+                                          <p class="cp-member__file def-snip__hdr"
+                 id="Extra--ifajax---code">
+                Defined in:
+                extra.js, <a href="https://github.com/ProgerXP/NoDash/blob/e10d515810e1b76a8f102af0af0cf83e5326cdf8/extra.js#L144-L227" target="_blank">lines 144-227</a> (84 lines)                                  &bull; <a href="#Extra--ifajax---code" class="def-snip__toggler">Show code</a>
+                              </p>
+                                              <pre class="def-snip__code"><code class="code_block prism language-javascript match-braces">ajax: function (options) {
+  var o = NoDash.assign({}, {
+    url: location.href,
+    type: 'GET',
+    data: undefined,
+    dataType: 'text',
+    context: undefined,
+    beforeSend: new Function,
+    success: new Function,
+    error: new Function,
+    complete: new Function,
+    progress: new Function,
+    timeout: 0,
+    headers: {'X-Requested-With': 'XMLHttpRequest'},
+    username: undefined,
+    password: undefined,
+  }, options)
+
+  if (!o.headers['Content-Type'] && o.type != 'GET' && typeof o.data != 'object') {
+    o.headers['Content-Type'] = 'application/x-www-form-urlencoded'
+  }
+
+  var xhr = new XMLHttpRequest
+  var queue = []
+
+  function finish() {
+    // Delayed processing to let all other events (errors) pass through.
+    queue.length || NoDash.defer(function () {
+      // No pop() - queue.length must be non-0 to prevent late XHR events
+      // from re-triggering this.
+      var args = [xhr].concat(Array.prototype.slice.call(queue[queue.length - 1]))
+
+      var ok = xhr.status >= 200 && xhr.status < 300 &&
+               // This check isn't very reliable as at least Firefox leaves
+               // 'json' as is even if response is 'text/html'.
+               xhr.responseType == o.dataType
+
+      try {
+        NoDash.bind(ok ? o.success : o.error).apply(o.context, args)
+      } catch (e) {
+        var ex = e
+      }
+
+      NoDash.bind(o.complete).apply(o.context, args)
+      if (ex) { throw ex }
+    })
+
+    queue.push(arguments)
+  }
+
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState == 4) {
+      finish.apply(undefined, arguments)
+    }
+  }
+
+  // ontimeout is fired after onreadystatechange.
+  xhr.ontimeout = finish
+
+  xhr.upload.onprogress = function () {
+    if (!queue.length) {
+      var args = [xhr].concat(Array.prototype.slice.call(arguments))
+      NoDash.bind(o.progress).apply(o.context, args)
+    }
+  }
+
+  if (NoDash.bind(o.beforeSend).call(o.context, xhr, o) === false) {
+    NoDash.bind(o.error).call(o.context, xhr)
+  } else {
+    xhr.open(o.type, o.url, true, o.username, o.password)
+    xhr.timeout = o.timeout
+    xhr.responseType = o.dataType
+
+    NoDash.forEach(o.headers, function (value, name) {
+      NoDash.toArray(value).forEach(function (item) {
+        xhr.setRequestHeader(name, item)
+      })
+    })
+
+    xhr.send(o.data)
+  }
+
+  return xhr
+},</code></pre>
+                          </dd>
+                      <dt id="Extra--ifformat"
+                data-entity='{"type":"func","id":959,"name":"format","start":{"line":892,"column":4,"offset":38715},"end":{"line":1107,"column":4,"offset":45758},"forced":null,"modifiers":[],"file":"extra.js"}'
+                class="cp-member__header">
+              <b>format</b>
+                              (
+                  [options, ] str [, arg [, ...]]                )
+                          </dt>
+            <dd class="cp-member__info">
+                                            <div class="fmt"><p>
+Interpolates <code class="chemdoc__id">arg</code>’uments into <code class="chemdoc__id">str</code>’ing according to format
+specifiers inspired by <code>printf()</code> of C, or returns a function doing so.</p><table class="chemdoc__entity-table chemdoc__entity-type">
+<caption>Result Types</caption>
+<thead>
+  <tr>
+    
+    <th>Types</th>
+    <th>Notes</th>
+  </tr>
+</thead>
+<tbody><tr class="chemdoc__first"><td>string formatted <code class="chemdoc__id">str</code></td><td rowspan="3" colspan="1"> Result depends on <code>options.return</code></td></tr><tr><td> string function’s source code</td></tr><tr><td>
+function accepting <code class="chemdoc__id">arg</code>’uments </td></tr></table><table class="chemdoc__entity-table chemdoc__entity-args">
+<caption>Arguments</caption>
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Types</th>
+    <th>Notes</th>
+  </tr>
+</thead>
+<tbody><tr class="chemdoc__first"><th rowspan="2">options</th><td>object</td><td rowspan="2" colspan="1"></td></tr><tr><td> omitted</td></tr></table><p>See also <a href="c_Extra.html#Extra--iftemplate" class="chemdoc__anchor-link chemdoc__link-entity member-fg member-fg_func mmods-fg " data-if-entity="917 chemdoc__link-entity-cur">template()</a>.</p><p>Specifiers in <code class="chemdoc__id">str</code> start with <code>%</code>. Special <code>%%</code> is output as is while
+others have this format (unsupported specifier triggers an error):
+<pre><code class="chemdoc__block prism language-javascript match-braces">% [[+|-][n]$] [+[ ]] [[-|=][0|`c]d] [.[-][p]] (s|c|d|f|x|X|b|o|H|I|S|Y|M|D|K|T)
+n     - takes 1-based n'th arg; causes next $-less % to take n+1, etc.
++-n   - ...relative: %+1$ = %+$ skip over next, %-2$ go back by two
++     - prefix positive number with '+' or ' '
+d     - number of symbols to pad to, using spaces on the left unless...
+-     - ...pads on the right
+=     - ...pads on both sides (centers)
+0     - ...pads with zeros
+c     - ...pads with that symbol
+p     - %f: rounds to this number of decimal places (without .p = 6),
+        padding with zeros on the right if no '-'; %s %c: cuts if
+        longer, from the right if no '-'; '.' alone = defaultPrecision
+%s    - treats arg as a string
+%c    - treats arg as one or many (if array) String.fromCharCode()-s
+%d    - treats arg as an integer, discarding fractional part
+%f    - treats arg as a fractional number; mantissa is exempted from d
+%x    - treats arg as an integer, output in hexadecimal lower case
+%X    - as %x but in upper case
+%b    - as %x but in binary
+%o    - as %x but in octal
+%H    - treats arg as a Date instance, outputs local hours (1-24)
+%I    - as %H but outputs minutes (0-59)
+%S    - as %H but outputs seconds (0-59)
+%Y    - as %H but outputs full year (like 2022)
+%M    - as %H but outputs month number (1-12)
+%D    - as %H but outputs day number (1-31)
+%K    - as %H but outputs week day number (1-7, 1 for Monday)</code></pre></p><p>Possible <code class="chemdoc__id">options</code> keys:</p><table class="chemdoc__entity-table chemdoc__entity-args">
+<caption>Arguments</caption>
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Types</th>
+    <th>Notes</th>
+  </tr>
+</thead>
+<tbody><tr class="chemdoc__first"><th rowspan="2">return</th><td>int</td><td rowspan="2" colspan="1"> If <code class="chemdoc__id">2</code>, <a href="c_Extra.html#Extra--ifformat" class="chemdoc__anchor-link chemdoc__link-entity member-fg member-fg_func mmods-fg " data-if-entity="917 chemdoc__link-entity-cur">format()</a> returns the formatted
+string; if <code class="chemdoc__id">1</code>, returns a function that can be used to format the same
+<code class="chemdoc__id">str</code> using different set of <code class="chemdoc__id">arg</code>’uments; if <code class="chemdoc__id">0</code>, returns its source
+code.</td></tr><tr><td> omitted = <code class="chemdoc__id">2</code> </td></tr><tr class="chemdoc__first"><th rowspan="2">silent</th><td>bool</td><td rowspan="2" colspan="1"> If set, doesn’t throw on insufficient number of
+<code class="chemdoc__id">arg</code>-s and other warnings.</td></tr><tr><td> omitted </td></tr><tr class="chemdoc__first"><th rowspan="2">ellipsis</th><td>str</td><td rowspan="2" colspan="1"> Terminator used when
+<code>.p</code>’recision outputs a longer <code>%s</code>/<code>%c</code> string; use <code>''</code> to cut without
+one.</td></tr><tr><td> null/omitted = <code>'...'</code> </td></tr><tr class="chemdoc__first"><th rowspan="2">defaultPrecision</th><td>object</td><td rowspan="2" colspan="1"> <code class="chemdoc__id">p</code> value when no number follows
+the dot; unset <code>%s</code>/<code>%c</code> default to 100.</td></tr><tr><td> omitted </td></tr><tr class="chemdoc__first"><th rowspan="2">specifiers</th><td>object</td><td rowspan="2" colspan="1"> Non-standard or overridden specifiers
+(<code>%...</code>); key is a single <code>\w</code> character, value is a function
+receiving <code>params, c</code>:<table class="chemdoc__entity-table chemdoc__entity-args">
+<caption>Arguments</caption>
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Types</th>
+    <th>Notes</th>
+  </tr>
+</thead>
+<tbody><tr class="chemdoc__first"><th rowspan="1">params</th><td>array </td><td rowspan="1" colspan="1"> Specifier string parameters; useful keys (all but
+first and last can be empty):<table class="chemdoc__entity-table chemdoc__entity-args">
+<caption>Arguments</caption>
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Types</th>
+    <th>Notes</th>
+  </tr>
+</thead>
+<tbody><tr class="chemdoc__first"><th rowspan="1">0</th><td rowspan="1" colspan="2"> Full specifier string without leading <code>%</code></td></tr><tr class="chemdoc__first"><th rowspan="1">2</th><td rowspan="1" colspan="2"> If <code>$</code> used: <code class="chemdoc__id">arg</code> index wrapped in <code>"</code></td></tr><tr class="chemdoc__first"><th rowspan="1">3</th><td rowspan="1" colspan="2"> Sign: <code>+</code> or <code>+</code> + space.</td></tr><tr class="chemdoc__first"><th rowspan="1">5</th><td rowspan="1" colspan="2"> Padding side: <code>-</code> or <code>=</code></td></tr><tr class="chemdoc__first"><th rowspan="1">6</th><td rowspan="1" colspan="2"> Padding symbol: <code class="chemdoc__id">0</code> or <code>`</code> + character.</td></tr><tr class="chemdoc__first"><th rowspan="1">7</th><td rowspan="1" colspan="2"> Padding length (numeric).</td></tr><tr class="chemdoc__first"><th rowspan="1">9</th><td rowspan="1" colspan="2"> Precision padding: <code>-</code></td></tr><tr class="chemdoc__first"><th rowspan="1">10</th><td rowspan="1" colspan="2"> Precision (numeric), empty if only <code>.</code> used.</td></tr><tr class="chemdoc__first"><th rowspan="1">11</th><td rowspan="1" colspan="2"> The specifier character.</td></tr></table><p>Note: sign and padding are handled by <a href="c_Extra.html#Extra--ifformat" class="chemdoc__anchor-link chemdoc__link-entity member-fg member-fg_func mmods-fg " data-if-entity="917 chemdoc__link-entity-cur">format()</a>, not this function.</p></td></tr><tr class="chemdoc__first"><th rowspan="1">c</th><td>object </td><td rowspan="1" colspan="1"> Current state; keys:<table class="chemdoc__entity-table chemdoc__entity-args">
+<caption>Arguments</caption>
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Types</th>
+    <th>Notes</th>
+  </tr>
+</thead>
+<tbody><tr class="chemdoc__first"><th rowspan="1">args</th><td>array </td><td rowspan="1" colspan="1"> Only when formatting; <code class="chemdoc__id">arg</code>’uments for interpolation.</td></tr><tr class="chemdoc__first"><th rowspan="1">arg</th><td>int </td><td rowspan="1" colspan="1"> Only when formatting; index of current <code class="chemdoc__id">arg</code>’ument.</td></tr><tr class="chemdoc__first"><th rowspan="1">head</th><td>str </td><td rowspan="1" colspan="1"> Only when compiling; JavaScript code added to the
+beginning of the compiled function; useful for declaring
+<code>var</code>iables.</td></tr><tr class="chemdoc__first"><th rowspan="1">options</th><td>object </td><td rowspan="1" colspan="1"> <code class="chemdoc__id">options</code> given to <a href="c_Extra.html#Extra--ifformat" class="chemdoc__anchor-link chemdoc__link-entity member-fg member-fg_func mmods-fg " data-if-entity="917 chemdoc__link-entity-cur">format()</a></td></tr><tr class="chemdoc__first"><th rowspan="1">e</th><td>function </td><td rowspan="1" colspan="1"> Throws an <code class="chemdoc__id">Error</code> unless <code>options.silent</code>;
+receives <code class="chemdoc__id">msg</code>, returns <code class="chemdoc__id">true</code></td></tr><tr class="chemdoc__first"><th rowspan="1">next</th><td>function </td><td rowspan="1" colspan="1"> Only call when formatting; returns current <code class="chemdoc__id">arg</code>
+and advances the index; receives <code class="chemdoc__id">null</code> or a 1-based number:
+<code>'c.next(' + params[2] + ')'</code></td></tr><tr class="chemdoc__first"><th rowspan="1">*</th><td rowspan="1" colspan="2"> Other keys can be used for storing custom state data.</td></tr></table></td></tr></table><p>Function must return a JavaScript code string (will be wrapped in
+<code>( )</code>) which can use context variables like <code class="chemdoc__id">a</code> (see below).
+Use <code>JSON.stringify()</code> to properly escape a string.</p></td></tr><tr><td> omitted </td></tr></table><p>These variables exist within the returned function:</p><table class="chemdoc__entity-table chemdoc__entity-args">
+<caption>Arguments</caption>
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Types</th>
+    <th>Notes</th>
+  </tr>
+</thead>
+<tbody><tr class="chemdoc__first"><th rowspan="1">_</th><td rowspan="1" colspan="2"> Reference to NoDash regardless of the global <code class="chemdoc__id">_</code></td></tr><tr class="chemdoc__first"><th rowspan="1">c</th><td rowspan="1" colspan="2"> Current formatter’s state (see above), shallow-copied for every new
+call of the returned function (still sharing <code class="chemdoc__id">options</code> and others).</td></tr><tr class="chemdoc__first"><th rowspan="1">a</th><td rowspan="1" colspan="2"> Temporary variable for use by the specifier formatter while it
+transforms the current <code class="chemdoc__id">arg</code></td></tr></table><p>For pretty formatting visible to user consider using standard <code class="chemdoc__id">Intl</code>
+classes, such as:</p><ul><li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat" class="chemdoc__custom-link chemdoc__proto-mdn" target="_blank">mdn:JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat</a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat" class="chemdoc__custom-link chemdoc__proto-mdn" target="_blank">mdn:JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat</a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat/RelativeTimeFormat" class="chemdoc__custom-link chemdoc__proto-mdn" target="_blank">mdn:JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat/RelativeTimeFormat</a>
+(this one is not in IE)</li></ul><fieldset class="chemdoc__example"><legend>Example</legend><pre><code class="chemdoc__block prism language-javascript match-braces">_.format('from char codes: %c', [97, 98, 99])
+  //=&gt; 'from char codes: abc'
+_.format('from char codes: %s', [97, 98, 99])
+  //=&gt; 'from char codes: 97,98,99'
+_.format('|%=`+10s|', 'head')
+  //=&gt; '|+++head+++|'
+_.format('%.5s %1$.-5s %02.5f %2$02.-5f', 'abcdef', 3.14)
+  //=&gt; 'ab... ...ef 03.14000 03.14'
+_.format('%Y-%1$02M-%1$02D', new Date)
+  //=&gt; '2022-11-01'
+_.format('%f(ms) %1$d(s) %1$.f(rounded)', new Date / 1000)
+  //=&gt; '1667314562.619000(ms) 1667314562(s) 1667314563(rounded)'
+
+// Ensure %s is exactly 5 chars, padding and cutting as necessary:
+var fmt = _.format({return: 1}, '%5.5s')
+  //=&gt; function (arg, arg, ...)
+fmt('abc')        //=&gt; '  abc'
+fmt('abcdef')     //=&gt; 'ab...'</code></pre></fieldset><fieldset class="chemdoc__example"><legend>Example</legend>Custom specifiers:
+<pre><code class="chemdoc__block prism language-javascript match-braces">var escaper = function (params) {
+  return '_.escape(c.next(' + params[2] + '))'
+}
+var s = '&lt;pre&gt;%20h&lt;/pre&gt;'
+var fmt = _.format({return: 1, specifiers: {h: escaper}}, s)
+  //=&gt; function (arg, ...) {
+  //     return _.padStart(_.escape(c.next(undefined)), 20, ' ')
+  //   }
+fmt('&lt;/SCRiPT&gt;&amp;')
+  //=&gt; &lt;pre&gt;   &amp;lt;/SCRiPT&gt;&amp;amp;&lt;/pre&gt;</code></pre></fieldset></div>
+                                          <p class="cp-member__file def-snip__hdr"
+                 id="Extra--ifformat---code">
+                Defined in:
+                extra.js, <a href="https://github.com/ProgerXP/NoDash/blob/e10d515810e1b76a8f102af0af0cf83e5326cdf8/extra.js#L893-L1108" target="_blank">lines 893-1108</a> (216 lines)                                  &bull; <a href="#Extra--ifformat---code" class="def-snip__toggler">Show code</a>
+                              </p>
+                                              <pre class="def-snip__code"><code class="code_block prism language-javascript match-braces">format: function (options, str) {
+  function noPrecision(c, params) {
+    if (params[8]) {
+      c.e('%' + params[11] + ' is incompatible with precision (' + params[8] + ')')
+    }
+  }
+
+  if (!(options instanceof Object)) {
+    str = options
+    options = {}
+  }
+
+  var args = NoDash.rest(arguments, 1 + (options == arguments[0]))
+
+  options.defaultPrecision = NoDash.assign({
+    s: 100,
+    c: 100,
+  }, options.defaultPrecision)
+
+  options.specifiers = NoDash.assign({
+    s: function (params, c, res) {
+      res = res || 'c.next(' + params[2] + ')'
+      if (params[8]) {
+        res = 'c.ellipsize(' + res + ',' + (params[10] || params[7] || options.defaultPrecision[params[11]] || 0) + ',' + !!params[9] + ')'
+      }
+      return res
+    },
+
+    c: function (params, c) {
+      var res = 'a=c.next(' + params[2] + '),String.fromCharCode.apply(undefined,_.isArrayLike(a)?a:[a])'
+      return options.specifiers.s(params, c, res)
+    },
+
+    d: function (params, c) {
+      noPrecision(c, params)
+      return 'Math.trunc(c.next(' + params[2] + '))'
+    },
+
+    f: function (params) {
+      var p = params[8] ? +params[10] || options.defaultPrecision[params[11]] || 0 : 6
+      var m = NoDash.repeat('0', p)
+      var variableWidth = params[9] /*'-' p*/ || !p /*no '.' p or '.0'*/
+      // If number is below 0, its string form will be shorter than p:
+      // %.2f: 0.012 * 100 = '1', not '01' and we won't know the length of
+      // mantissa.
+      var res = 'Math.round((c.next(' + params[2] + ')' + (variableWidth ? '' : '+1') + ')' + (m && '*1' + m) + ')'
+      if (variableWidth) {
+        return 'a=' + res + (m && '/1' + m) + '+"",al-=a.length-Math.max(0,a.indexOf(".")),a'
+      } else {
+        return 'al-=' + (p + 1 /*dot*/) + ',a=' + res + '+"",a.substr(0,a.length-' + p + ')-1+"."+a.substr(-' + p + ')'
+      }
+    },
+
+    x: function (params, c, base) {
+      noPrecision(c, params)
+      return '(+c.next(' + params[2] + ')).toString(' + (base || 16) + ')'
+    },
+
+    X: function (params, c) {
+      return options.specifiers.x(params, c) + '.toUpperCase()'
+    },
+
+    b: function (params, c) {
+      return options.specifiers.x(params, c, 2)
+    },
+
+    o: function (params, c) {
+      return options.specifiers.x(params, c, 8)
+    },
+
+    H: function (params, c, func) {
+      noPrecision(c, params)
+      return 'c.next(' + params[2] + ').' + (func || 'getHours') + '()'
+    },
+
+    I: function (params, c) {
+      return options.specifiers.H(params, c, 'getMinutes')
+    },
+
+    S: function (params, c) {
+      return options.specifiers.H(params, c, 'getSeconds')
+    },
+
+    Y: function (params, c) {
+      return options.specifiers.H(params, c, 'getFullYear')
+    },
+
+    M: function (params, c) {
+      return options.specifiers.H(params, c, 'getMonth') + '+1'
+    },
+
+    D: function (params, c) {
+      return options.specifiers.H(params, c, 'getDate')
+    },
+
+    K: function (params, c) {
+      return options.specifiers.H(params, c, 'getDay')
+    },
+  }, options.specifiers)
+
+  var c = {
+    //! +ig
+    //args: null,   // format-time
+    //arg: 0,       // format-time
+    head: 'var a,al,c=_.assign({arg:0,args:_.rest(arguments,2)},_c);',
+    options: options,
+
+    e: function (msg) {
+      if (!this.options.silent) {
+        throw new Error('format: ' + msg + '.')
+      }
+      return true
+    },
+
+    //! +ig
+    next: function (param) {    // [+-][n]
+      if (param) {
+        isNaN(param[0]) ? this.arg += +param : this.arg = param - 1
+      }
+      if (++this.arg > this.args.length) {
+        this.e('too few arguments')
+        return ''
+      } else {
+        return this.args[this.arg - 1]
+      }
+    },
+
+    ellipsize: function (s, max, left) {
+      s += ''
+      if (s.length > max) {
+        var ell = options.ellipsis == null ? '...' : options.ellipsis
+        s = max <= ell.length
+            ? left ? s.substr(-max) : s.substr(0, max)
+            : left
+              ? ell + s.substr(-(max - ell.length))
+              : s.substr(0, max - ell.length) + ell
+      }
+      return s
+    },
+  }
+
+  // Since specifier format looks the same when stringify()'ed, can call the
+  // latter once on the entire string rather than on every parts.shift().
+  var parts = JSON.stringify(str)
+    // Note: update doc comment above and splice() below if changing ( )s.
+    .split(/%(%|(([+-]\d*|\d+)\$)?(\+ ?)?(([-=])?(0|`.)?(\d+))?(\.(-)?(\d*))?(\w))/)
+    //       0  12                3      45      6      7      8  9   10     11
+
+  var code = ''
+
+  while (true) {
+    code += parts.shift()           // A%sB%dC = [A] [%s] [B] [%d] [C]
+    if (!parts.length) { break }    //           ^shift   ^shift   ^shift
+
+    //  0   part after initial '%': '%' or full specifier
+    //  1   n + '$'
+    //  2   [+|-] [n]
+    //  3   '+' or '+ '
+    //  4   [[-|=][0|`c]d]
+    //  5   '-' or '='
+    //  6   '0' or '`' + c
+    //  7   d
+    //  8   [.[-][p]]
+    //  9   '-'
+    // 10   p
+    // 11   specifier symbol
+    var params = parts.splice(0, 12)  // 12 = number of ( )s above
+
+    if (params[0] == '%') {
+      code += '%'
+      continue
+    }
+
+    var func = options.specifiers[params[11]]
+    if (!func) {
+      c.e('unsupported specifier %' + params[11] + ': %' + params[0])
+      continue
+    }
+
+    if (params[2] == '+' || params[2] == '-') { params[2] += '1' }
+    params[2] = params[2] ? '"' + params[2] + '"' : ''
+
+    code += '"+(al=0,a=(' + func(params, c) + '),'
+    if (params[3]) {
+      code += '(a>0?"' + params[3].substr(-1) + '":"")+'
+    }
+    if (!params[4]) {
+      code += 'a'
+    } else {
+      var n = params[7]
+      var p = JSON.stringify(NoDash.repeat((params[6] || ' ').substr(-1), +n))
+      if (params[5] == '=') {
+        code += '(a+="",a=' + p + '.substr(0,(' + n + '-a.length+al)/2)+a)+' + p + '.substr(a.length)'
+      } else {
+        p += '.substr(a.length+al)'
+        code += '(a+="",' + (params[5] ? 'a+' + p : p + '+a') + ')'
+      }
+    }
+    code += ')+"'
+  }
+
+  code = c.head + 'a=' + code + ';c.arg==c.args.length||c.e("too many arguments");return a'
+
+  if (options.return != 0) {
+    code = (new Function('_c,_', code)).bind(undefined, c, NoDash)
+    if (options.return != 1) {
+      return code.apply(undefined, args)
+    }
+  }
+
+  if (args.length) {
+    c.e("have both format arg-s and options.return < 2")
+  }
+
+  return code
+},</code></pre>
+                          </dd>
+                      <dt id="Extra--iftemplate"
+                data-entity='{"type":"func","id":934,"name":"template","start":{"line":579,"column":4,"offset":24776},"end":{"line":761,"column":4,"offset":31731},"forced":null,"modifiers":[],"file":"extra.js"}'
+                class="cp-member__header">
+              <b>template</b>
+                              (
+                  str [, options]                )
+                          </dt>
+            <dd class="cp-member__info">
+                                            <div class="fmt"><p>
+Converts a template <code class="chemdoc__id">str</code> to a function that accepts variables and
+returns a formatted string.</p><table class="chemdoc__entity-table chemdoc__entity-type">
+<caption>Result Types</caption>
+<thead>
+  <tr>
+    
+    <th>Types</th>
+    <th>Notes</th>
+  </tr>
+</thead>
+<tbody><tr class="chemdoc__first"><td>function accepting <code class="chemdoc__id">vars</code></td><td rowspan="2" colspan="1"></td></tr><tr><td> string if <code>options.source</code></td></tr></table><table class="chemdoc__entity-table chemdoc__entity-args">
+<caption>Arguments</caption>
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Types</th>
+    <th>Notes</th>
+  </tr>
+</thead>
+<tbody><tr class="chemdoc__first"><th rowspan="3">str</th><td>string</td><td rowspan="3" colspan="1"> The template.</td></tr><tr><td>
+function take the contents of the first <code>/**/</code> comment (make sure it’s not minified away)</td></tr><tr><td>
+Node take <code class="chemdoc__id">textContent</code> </td></tr><tr class="chemdoc__first"><th rowspan="2">options</th><td>object</td><td rowspan="2" colspan="1"> Compilation options.</td></tr><tr><td> omitted </td></tr></table><p><a href="c_Extra.html#Extra--iftemplate" class="chemdoc__anchor-link chemdoc__link-entity member-fg member-fg_func mmods-fg " data-if-entity="917 chemdoc__link-entity-cur">template()</a> can be used outside of web browser environment.</p><p>See also <a href="c_Extra.html#Extra--ifformat" class="chemdoc__anchor-link chemdoc__link-entity member-fg member-fg_func mmods-fg " data-if-entity="917 chemdoc__link-entity-cur">format()</a>.</p><p>Possible <code class="chemdoc__id">options</code> keys:</p><table class="chemdoc__entity-table chemdoc__entity-args">
+<caption>Arguments</caption>
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Types</th>
+    <th>Notes</th>
+  </tr>
+</thead>
+<tbody><tr class="chemdoc__first"><th rowspan="3">prepare</th><td>omitted</td><td rowspan="3" colspan="1"> Function receives caller-given <code class="chemdoc__id">vars</code>
+(<code>{}</code> if not given) and options under <code class="chemdoc__id">o</code> (may be <code class="chemdoc__id">undefined</code>) and
+returns an object with complete variables and options (may be mutated).</td></tr><tr><td> object defaults for formatting variables and/or
+options (under <code class="chemdoc__id">o</code>)</td></tr><tr><td> function </td></tr><tr class="chemdoc__first"><th rowspan="2">source</th><td>bool</td><td rowspan="2" colspan="1"> If set, returns a JavaScript string – code of
+the function to be compiled.</td></tr><tr><td> omitted </td></tr><tr class="chemdoc__first"><th rowspan="2">with</th><td>bool</td><td rowspan="2" colspan="1"> If set, members of <code class="chemdoc__id">vars</code> can be
+referenced directly, not through <code class="chemdoc__id">v</code>; such templates are slower due to
+using JavaScript’s <code>with { }</code></td></tr><tr><td> omitted = <code class="chemdoc__id">true</code> </td></tr><tr class="chemdoc__first"><th rowspan="2">laxRef</th><td>bool</td><td rowspan="2" colspan="1"> If set, non-code <code class="chemdoc__id">ref</code> are resolved
+with <a href="c_NoDash.html#NoDash--ifat" class="chemdoc__anchor-link chemdoc__link-entity member-fg member-fg_func mmods-fg " data-if-entity="989 chemdoc__link-entity-cur">at()</a>, meaning they return the non-object value immediately, even
+if there are more path components (that triggers an error without
+<code class="chemdoc__id">laxRef</code>, but is faster).</td></tr><tr><td> omitted = <code class="chemdoc__id">true</code> </td></tr><tr class="chemdoc__first"><th rowspan="2">code</th><td>bool</td><td rowspan="2" colspan="1"> If unset, fails to compile if there are
+constructs allowing arbitrary code execution; in such case it should be
+safe to pass <code class="chemdoc__id">str</code> from untrusted input since it can only read values
+given to the compiled function and from global <code class="chemdoc__id">window</code> (unless there
+are custom <code class="chemdoc__id">blocks</code>).</td></tr><tr><td> omitted = <code class="chemdoc__id">true</code> </td></tr><tr class="chemdoc__first"><th rowspan="2">backslash</th><td>bool</td><td rowspan="2" colspan="1"> If set, preprocesses <code class="chemdoc__id">str</code> by
+removing backslashes placed before a line break together with all the
+following whitespace and line breaks; useful for splitting long lines
+that can’t normally be split, wrapping <code>{{</code> <code>}}</code> or getting rid of
+unwanted spaces inside <code>&lt;u&gt;</code></td></tr><tr><td> omitted = <code class="chemdoc__id">false</code> </td></tr><tr class="chemdoc__first"><th rowspan="2">blocks</th><td>object</td><td rowspan="2" colspan="1"> New <code class="chemdoc__id">custom</code> or
+overridden standard <code class="chemdoc__id">if</code>/<code class="chemdoc__id">for</code>/etc.; key is the block’s name
+(alphanumeric), value is a function receiving <code>param, value, c</code>:<table class="chemdoc__entity-table chemdoc__entity-args">
+<caption>Arguments</caption>
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Types</th>
+    <th>Notes</th>
+  </tr>
+</thead>
+<tbody><tr class="chemdoc__first"><th rowspan="2">param</th><td>null if no <code>:...</code> given</td><td rowspan="2" colspan="1"> Part after <code>:</code> (may be blank).</td></tr><tr><td> str </td></tr><tr class="chemdoc__first"><th rowspan="2">value</th><td>null no space given</td><td rowspan="2" colspan="1"> Part after space; on conflict
+with non-code <code class="chemdoc__id">echo</code> the latter wins so add a colon for unambiguity:
+<code>{{echo}}</code> but <code>{{block:}}</code></td></tr><tr><td> str </td></tr><tr class="chemdoc__first"><th rowspan="1">c</th><td>object </td><td rowspan="1" colspan="1"> Current compiler’s state; keys:<table class="chemdoc__entity-table chemdoc__entity-args">
+<caption>Arguments</caption>
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Types</th>
+    <th>Notes</th>
+  </tr>
+</thead>
+<tbody><tr class="chemdoc__first"><th rowspan="1">options</th><td>object </td><td rowspan="1" colspan="1"> An internal copy of <code class="chemdoc__id">options</code> given to
+<a href="c_Extra.html#Extra--iftemplate" class="chemdoc__anchor-link chemdoc__link-entity member-fg member-fg_func mmods-fg " data-if-entity="917 chemdoc__link-entity-cur">template()</a>, with filled defaults.</td></tr><tr class="chemdoc__first"><th rowspan="1">ref</th><td>function </td><td rowspan="1" colspan="1"> Resolves a reference (see <code class="chemdoc__id">ref</code> below); receives
+a raw string, returns a JavaScript code snippet evaluating to
+string.</td></tr><tr class="chemdoc__first"><th rowspan="1">stack</th><td rowspan="1" colspan="2"> Current chain of blocks, first being last opened.</td></tr><tr class="chemdoc__first"><th rowspan="1">extra</th><td>object </td><td rowspan="1" colspan="1"> For passing non-serializable data to the compiled
+function; available under <code class="chemdoc__id">_x</code> variable.</td></tr><tr class="chemdoc__first"><th rowspan="1">*</th><td rowspan="1" colspan="2"> Other keys can be used for storing custom state data.</td></tr></table><p>Attention: be mindful of operator precedence: returning code like
+<code>a || b</code> will prevent the template from running; instead, return
+<code>(a || b)</code>. Brackets are not added automatically because <code>(</code> may
+appear in <code class="chemdoc__id">start</code> and a matching <code>)</code> appears in <code class="chemdoc__id">end</code>.</p></td></tr></table><p>Function must return an object with keys:</p><table class="chemdoc__entity-table chemdoc__entity-args">
+<caption>Arguments</caption>
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Types</th>
+    <th>Notes</th>
+  </tr>
+</thead>
+<tbody><tr class="chemdoc__first"><th rowspan="2">start</th><td>omitted</td><td rowspan="2" colspan="1"> JavaScript code evaluating to string.</td></tr><tr><td> str </td></tr><tr class="chemdoc__first"><th rowspan="2">end</th><td>omitted</td><td rowspan="2" colspan="1"> JavaScript code evaluating to string at the
+time block’s end is met (<code>{{/}}</code>); if <code class="chemdoc__id">null</code> then the block isn’t
+opened and needs not be closed (alike to <code>&lt;input&gt;</code> in HTML).</td></tr><tr><td> str </td></tr><tr class="chemdoc__first"><th rowspan="2">type</th><td>omitted</td><td rowspan="2" colspan="1"> Used together with <code class="chemdoc__id">end</code>; sets matching
+<code class="chemdoc__id">block_end</code>’s type; defaults for the block’s key.</td></tr><tr><td> str </td></tr><tr class="chemdoc__first"><th rowspan="2">head</th><td>omitted</td><td rowspan="2" colspan="1"> JavaScript code added to the beginning of
+the compiled function; useful for declaring <code>var</code>iables.</td></tr><tr><td> str </td></tr></table><p>Code snippets can use context variables like <code class="chemdoc__id">v</code> (see below).
+Use <code>JSON.stringify()</code> to properly escape a string.</p></td></tr><tr><td> omitted = default <code class="chemdoc__id">if</code>/<code class="chemdoc__id">for</code>/etc. </td></tr></table><p>Template syntax loosely resembles that of Mustache.js/Handlebars.js – all
+substitutions are performed within <code>{{...}}</code>:
+<pre><code class="chemdoc__block prism language-javascript match-braces">escaped       = \[\\...]{{
+echo          = {{ [=] ref }}
+conditional   = {{ [else]if[:not] ref }}
+              | {{ else[:] }}
+loop          = {{ for[:[*][pf]] ref }}
+              | {{ elseif[:pf|-[:not]] ref }}
+              | {{ else[:pf|-] }}
+block_end     = {{ / [if|for] }}
+custom        = {{ key[:[param]][ value] }}
+              | {{ / [key] }}
+
+ref           = var[.prop...] | code</code></pre></p><ul><li><code class="chemdoc__id">escaped</code>: a pair of <code>{</code> prefixed with odd number of <code>\</code> becomes raw
+<code>{{</code> prefixed with half that number of <code>\</code>; even number of <code>\</code> doesn’t
+escape <code>{{</code> but is still emitted “halved”: <pre><code class="chemdoc__block prism language-javascript match-braces">\{{ = {{    \\\{{ = \{    \\\\\{{ = \\{{
+\\{{...}} = \ + result    \\\\{{...}} = \\ + result</code></pre></li><li><code class="chemdoc__id">echo</code>: emits value of a variable/property (not of global like <code class="chemdoc__id">window</code>)
+or result of executing arbitrary code (if <code class="chemdoc__id">ref</code> is not alphanumeric with
+periods). Without <code>=</code> the result is post-processed by <code>v.o.escaper</code>
+(e.g. HTML-escaped). If <code class="chemdoc__id">ref</code> is <code class="chemdoc__id">null</code> or <code class="chemdoc__id">undefined</code>, emits nothing.</li><li><code class="chemdoc__id">conditional</code>: emits the enclosed block only if <code class="chemdoc__id">ref</code> is truthy (or
+falsy with <code>:not</code>).</li><li><code class="chemdoc__id">loop</code>: emits the enclosed block once for every iteration. <code class="chemdoc__id">ref</code> is
+given to <a href="c_NoDash.html#NoDash--ifforEach" class="chemdoc__anchor-link chemdoc__link-entity member-fg member-fg_func mmods-fg " data-if-entity="989 chemdoc__link-entity-cur">forEach()</a>, with <a href="c_NoDash.html#NoDash--ivforceObject" class="chemdoc__anchor-link chemdoc__link-entity member-fg member-fg_var mmods-fg " data-if-entity="989 chemdoc__link-entity-cur">forceObject</a> if asterisk (<code>*</code>) is present.
+Optional <code class="chemdoc__id">pf</code> specifies prefix for variables inside the block that are
+by default <code class="chemdoc__id">m</code> (“m”ember’s value), <code class="chemdoc__id">k</code> (“k”ey), <code class="chemdoc__id">i</code> (“i”ndex, same as
+<code class="chemdoc__id">k</code> if <code class="chemdoc__id">ref</code> <a href="c_NoDash.html#NoDash--ifisArrayLike" class="chemdoc__anchor-link chemdoc__link-entity member-fg member-fg_func mmods-fg " data-if-entity="989 chemdoc__link-entity-cur">isArrayLike</a>), <code class="chemdoc__id">a</code> (“a”ll, the <code class="chemdoc__id">ref</code>). In object mode,
+iterations are seamlessly ordered by comparing keys as strings
+(<code>for:array</code> iterates in different order than <code>for:*array</code>:
+<code>2 &lt; 10</code> but <code>'2' &gt; '10'</code>).<p>Only <code class="chemdoc__id">i</code> exists outside of the block and is <code class="chemdoc__id">undefined</code> prior to the
+first <code class="chemdoc__id">loop</code> with that <code class="chemdoc__id">pf</code>; after a <code class="chemdoc__id">loop</code> it holds index of the last
+iterated member, or <code>-1</code> if <code class="chemdoc__id">ref</code> was empty (or
+<code class="chemdoc__id">undefined</code>/<code class="chemdoc__id">null</code>/<code class="chemdoc__id">false</code>) – this is what <code class="chemdoc__id">loop</code>’s enclosed
+<code class="chemdoc__id">elseif</code>/<code class="chemdoc__id">else</code> test (they also change <code class="chemdoc__id">for</code>’s <code class="chemdoc__id">block_end</code> from <code>/for</code>
+to <code>/if</code>). Without <code>:</code> or with <code>:-</code>, last <code class="chemdoc__id">for</code> (its <code class="chemdoc__id">pf</code>) is checked:
+<code>{{elseif}} {{elseif:-}} {{elseif:-:not}}</code> – but here last <code class="chemdoc__id">for</code> with
+empty <code class="chemdoc__id">pf</code> is checked: <code>{{elseif:}} {{elseif::not}}</code>.</p></li><li><code class="chemdoc__id">block_end</code>: give the expected block’s type (not simply <code>{{/}}</code>) for
+extra syntax safety: <pre><code class="chemdoc__block prism language-javascript match-braces">{{if ...}} {{for ...}} {{/}} {{/}}        - works
+{{if ...}} {{for ...}} {{/for}} {{/if}}   - works
+{{if ...}} {{for ...}} {{/if}} {{/for}}   - fails to compile</code></pre></li><li>Nested and multi-line <code>{{</code> <code>}}</code> are not supported but you can use string
+<code class="chemdoc__id">backslash</code> or escapes: <code>{{'}}\n'}}</code> fails but <code>{{'\\x7d\\n}'}}</code>
+works.</li></ul><p>The returned compiled template function accepts these arguments:</p><table class="chemdoc__entity-table chemdoc__entity-args">
+<caption>Arguments</caption>
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Types</th>
+    <th>Notes</th>
+  </tr>
+</thead>
+<tbody><tr class="chemdoc__first"><th rowspan="2">v</th><td>object</td><td rowspan="2" colspan="1"> Variables for access by <code class="chemdoc__id">ref</code>; the <code class="chemdoc__id">o</code> key
+contains formatting options; standard <code class="chemdoc__id">o</code> subkeys:<table class="chemdoc__entity-table chemdoc__entity-args">
+<caption>Arguments</caption>
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Types</th>
+    <th>Notes</th>
+  </tr>
+</thead>
+<tbody><tr class="chemdoc__first"><th rowspan="2">escaper</th><td>function</td><td rowspan="2" colspan="1"> <code class="chemdoc__id">echo</code> without <code>=</code> runs
+the value through this; in HTML context you’d set it to <a href="c_NoDash.html#NoDash--ifescape" class="chemdoc__anchor-link chemdoc__link-entity member-fg member-fg_func mmods-fg " data-if-entity="989 chemdoc__link-entity-cur">escape()</a></td></tr><tr><td> omitted return as is </td></tr></table></td></tr><tr><td> falsy = <code>{}</code> </td></tr></table><p>These variables exist within the returned function:</p><table class="chemdoc__entity-table chemdoc__entity-args">
+<caption>Arguments</caption>
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Types</th>
+    <th>Notes</th>
+  </tr>
+</thead>
+<tbody><tr class="chemdoc__first"><th rowspan="1">_</th><td rowspan="1" colspan="2"> Reference to NoDash regardless of the global <code class="chemdoc__id">_</code></td></tr><tr class="chemdoc__first"><th rowspan="1">v</th><td rowspan="1" colspan="2"> Variables given by the caller (<code>v.o</code> = options, or <code>{}</code>).</td></tr><tr class="chemdoc__first"><th rowspan="1">_x</th><td rowspan="1" colspan="2"> The <code>c.extra</code> object (see the <code class="chemdoc__id">blocks</code> option).</td></tr><tr class="chemdoc__first"><th rowspan="1">*</th><td rowspan="1" colspan="2"> Members of <code class="chemdoc__id">v</code>, if <code>options.with</code> is set.</td></tr></table><fieldset class="chemdoc__example"><legend>Example</legend><pre><code class="chemdoc__block prism language-javascript match-braces">_.template('{{a.b.c}}')({})                   //=&gt; ''
+_.template('{{a.b.c}}', {laxRef: false})()    // Error
+_.template('{{a}}', {laxRef: false})()        // Error
+_.template('{{v["a"]}}', {laxRef: false})()
+  //=&gt; '' (v is always present)
+_.template('{{a["b"]}}')()
+  // Error (laxRef only affects non-code ref)
+_.template('{{Math.random()}}')()             //=&gt; 0.2446989
+
+_.template('{{if Math.random() &gt; 0.5}}win!{{/}}')()
+  //=&gt; 'win!' or ''
+_.template('{{if Math.random &gt; 1}}win!{{/}}')({
+  Math: {random: 9000},
+})
+  //=&gt; 'win!'
+
+_.template('{{if Math.random}}win!{{/}}', {laxRef: false, with: false})({})
+  //=&gt; 'win!'
+_.template('{{if:not Math.random}}win!{{/}}')()
+  //=&gt; ''
+_.template('{{if Math.random}}win!{{/}}')({Math: {random: 0}})  //=&gt; ''
+_.template('{{Math.random}}')({Math: {random: -451}})     //=&gt; '-451'
+
+_.template('{{document.title}}')()
+  //=&gt; 'bar' (window.document.title)
+_.template('{{document.title}}')({
+  document: {title: 'foo'},
+})
+  //=&gt; 'foo'
+_.template('{{v.document.title}}')({
+  document: {title: 'foo'},
+})
+  //=&gt; 'foo'
+_.template('{{document.title}}', {with: false})()
+  //=&gt; 'bar'
+_.template('{{document.title}}', {with: false})({
+  document: {title: 'foo'},
+})
+  //=&gt; 'bar'
+_.template('{{v.document.title}}', {with: false})({
+  document: {title: 'foo'},
+})
+  //=&gt; 'foo'
+
+_.template('{{document["title"]}}')()
+  //=&gt; 'bar'
+_.template('{{document["title"]}}')({
+  document: {title: 'foo'},
+})
+  //=&gt; 'foo'
+_.template('{{document["title"]}}', {with: false})({
+  document: {title: 'foo'},
+})
+  //=&gt; 'bar'
+_.template('{{v.document["title"]}}', {with: false})({
+  document: {title: 'foo'},
+})
+  //=&gt; 'foo'</code></pre></fieldset><fieldset class="chemdoc__example"><legend>Example</legend><pre><code class="chemdoc__block prism language-javascript match-braces">var tpl = function () { /*
+  {{if homepage}}&lt;a href="{{homepage}}"&gt;Homepage&lt;/a&gt;{{/}}
+*/ }
+_.template(tpl)({homepage: 'https://squizzle.me'})
+  //=&gt; &lt;a href="https://squizzle.me"&gt;Homepage&lt;/a&gt;
+
+var tpl = function () { /*
+  https://very.long/\
+  string?with=lotta&amp;\
+  query=params#!and-stuff
+*/ }
+_.template(tpl, {backslash: true})()
+  //=&gt; https://very.long/string?with=lotta&amp;query=params#!and-stuff</code></pre></fieldset><p>Other examples where <code class="chemdoc__id">backslash</code> is useful:
+<pre><code class="chemdoc__block prism language-javascript match-braces">{{if foo... &amp;&amp; \        becomes {{if foo... &amp;&amp; bar... }}
+     bar... \           without spaces before \ would be:
+}}                              {{if foo...&amp;&amp; bar...}}
+
+&lt;u ...&gt;\                becomes &lt;u ...&gt;text&lt;/u&gt; rather than
+  text\                 &lt;u ...&gt; text &lt;/u&gt;, removing underline of the
+&lt;/u&gt;                    whitespace after "text" when viewed in browser</code></pre></p><fieldset class="chemdoc__example"><legend>Example</legend>Given this node somewhere in DOM (<code>&lt;template&gt;</code> is unsupported in IE):
+<pre><code class="chemdoc__block prism language-javascript match-braces">&lt;script type="text/template" id="menuTemplate"&gt;
+  &lt;ul&gt;
+    {{for menu}}
+      &lt;li&gt;
+        {{i+1}}. &lt;a href="{{m.url}}"&gt;{{m.caption}}&lt;/a&gt;
+      &lt;/li&gt;
+    {{/for}}
+  &lt;/ul&gt;
+&lt;/script&gt;</code></pre>
+This call:
+<pre><code class="chemdoc__block prism language-javascript match-braces">var func = _.template(document.getElementById('menuTemplate'))
+func({
+  menu: [
+    {url: '//squizzle.me', caption: "Squizzle's home"},
+    {url: '//squizzle.me/js/sqimitive', caption: "Sqimitive.js"},
+  ],
+}, {escaper: _.escape})</code></pre>
+…will produce:
+<pre><code class="chemdoc__block prism language-javascript match-braces">&lt;ul&gt;
+  &lt;li&gt;
+    1. &lt;a href="//squizzle.me"&gt;Squizzle&amp;39;s home&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    2. &lt;a href="//squizzle.me/js/sqimitive"&gt;Sqimitive.js&lt;/a&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</code></pre></fieldset><fieldset class="chemdoc__example"><legend>Example</legend>Using <code class="chemdoc__id">prepare</code>:
+<pre><code class="chemdoc__block prism language-javascript match-braces">var f = _.template('{{a}}', {prepare: {a: '&amp;', o: {escaper: _.escape}}})
+f()                             //=&gt; '&amp;amp;'
+f({a: '&lt;'})                     //=&gt; '&amp;lt;'
+f({}, {escaper: null})          //=&gt; '&amp;'
+f({a: '&lt;'}, {escaper: null})    //=&gt; '&lt;'</code></pre>
+To force certain variables and/or options wrap the returned function:
+<pre><code class="chemdoc__block prism language-javascript match-braces">var f = _.template('{{a}}')
+var w = function (v) {
+  var o = _.assign({}, v.o, {escaper: _.escape})
+  return f(_.assign({}, v, {a: '&amp;', o: o}))
+}
+w({a: '&lt;'}, {escaper: null})    //=&gt; '&amp;amp;'</code></pre>
+Function form of <code class="chemdoc__id">prepare</code> is useful if the template is compiled early
+but the defaults it should use change over time:
+<pre><code class="chemdoc__block prism language-javascript match-braces">var f = _.template('{{r}}', {prepare: {r: Math.random()}})
+f()         //=&gt; 0.2446989
+f()         //=&gt; 0.2446989
+f({r: -1})  //=&gt; -1
+
+var f = _.template('{{r}}', {prepare: function (v) {
+  return {r: Math.random(), o: v.o}
+    // ignores all caller-given variables, keeps its options
+  return _.assign({}, v, {r: Math.random(), o: v.o})
+    // overrides r's value, keeps other variables and all options
+}})
+f()         //=&gt; 0.0682551
+f()         //=&gt; 0.4187164
+f({r: -1})  //=&gt; 0.1058262</code></pre></fieldset><fieldset class="chemdoc__example"><legend>Example</legend><pre><code class="chemdoc__block prism language-javascript match-braces">var f = _.template(`
+  {{for a}}
+    a
+  {{elseif b}}
+    b
+  {{else}}
+    c
+  {{/if}}
+`)
+// Equivalent to:
+var f = _.template(`
+  {{for a}}
+    a
+  {{/for}}
+  {{if i == -1 &amp;&amp; b}}
+    b
+  {{elseif i == -1}}
+    c
+  {{/if}}
+`)
+
+f()                 //=&gt; 'c'
+f({b: true})        //=&gt; 'b'
+f({a: [1, 2, 3]})   //=&gt; 'a a a'</code></pre></fieldset><fieldset class="chemdoc__example"><legend>Example</legend>With enabled <code>options.with</code>, <code class="chemdoc__id">loop</code>’s variables shadow global ones
+with the same name but globals are still accessible through <code>v.</code>. Use
+<code>:pf</code> to avoid shadowing. Assuming enabled <code class="chemdoc__id">with</code>:
+<pre><code class="chemdoc__block prism language-javascript match-braces">{{a}} {{v.a}}               // .a of the global variables object
+{{v.v.a}}                   // .a property of a global variable .v
+{{for y}} {{a}} {{v.a}} {{m.a}} {{v.m.a}} {{/for}}
+  // loop's .a (!), global .a variable, member's .a,
+  // .a property of a global variable .m
+{{for:f y}} {{a}} {{fa}} {{m.a}} {{fm.a}} {{/for}}
+  // global .a variable, loop's .a, global .m's .a, member's .a</code></pre></fieldset><fieldset class="chemdoc__example"><legend>Example</legend>Custom blocks:
+<pre><code class="chemdoc__block prism language-javascript match-braces">var sample = function (param, value, c) {
+  return {start: '_.sample(' + c.ref(value) + ')'}
+}
+_.template('{{sample items}}', {blocks: {sample}})
+  ({items: ['a', 'b', 'c']})
+    //=&gt; 'a' or 'b' or 'c'</code></pre>
+Removing whitespace outside of HTML tags (<code>&lt; &gt;</code>):
+<pre><code class="chemdoc__block prism language-javascript match-braces">var ws = function () {
+  return {start: '(""', end: '"").replace(/\\s(?=&lt;|$)/g, "")'}
+}
+_.template('{{ws}} &lt;abbr title="Oh"&gt; {{/ws}} &lt;/abbr&gt;', {blocks: {ws}})()
+    //=&gt; '&lt;abbr title="Oh"&gt; &lt;/abbr&gt;'
+
+_.template(..., {..., source: true})
+// Compiled to code (cleaned):
+return (" &lt;abbr title=\"Oh\"&gt; ").replace(/\s(?=&lt;|$)/g, "") + " &lt;/abbr&gt;"</code></pre></fieldset></div>
+                                          <p class="cp-member__file def-snip__hdr"
+                 id="Extra--iftemplate---code">
+                Defined in:
+                extra.js, <a href="https://github.com/ProgerXP/NoDash/blob/e10d515810e1b76a8f102af0af0cf83e5326cdf8/extra.js#L580-L762" target="_blank">lines 580-762</a> (183 lines)                                  &bull; <a href="#Extra--iftemplate---code" class="def-snip__toggler">Show code</a>
+                              </p>
+                                              <pre class="def-snip__code"><code class="code_block prism language-javascript match-braces">template: function (str, options) {
+  options = NoDash.assign({with: true, laxRef: true, code: true}, options)
+
+  options.blocks = NoDash.assign({
+    if: function (param, value, c, ref) {
+      if (param && param != 'not') {
+        throw new Error('template: bad "if:' + param + '".')
+      }
+      return {start: '(' + (param ? '!' : '') + (ref || c.ref)(value) + '?""',
+              end: '"":"")'}
+    },
+
+    elseif: function (param, value, c, ref) {
+      var prev = c.stack[0] && !c.stack[0]._else && c.stack[0].type
+      if (prev == 'for') {
+        param = (param == null ? '-' : param).match(/^(\w*|-)(:(.*))?$/)
+        if (param[1] == '-') { param[1] = c._lastFor }
+        var res = options.blocks.if(param[3], value, c, function (s) {
+          return '(' + param[1] + 'i==-1&&' + (ref || c.ref)(s) + ')'
+        })
+        return NoDash.assign(res, {start: c.stack.shift().end + '+' + res.start,
+                                   type: 'if', _for: param[1]})
+      } else if (prev != 'if') {
+        throw new Error('template: elseif: no preceding if or for.')
+      } else {
+        if (c.stack[0]._for != null) {
+          arguments[3] = function (s) {
+            return '(' + c.stack[0]._for + 'i==-1&&' + (ref || c.ref)(s) + ')'
+          }
+          arguments.length++
+        }
+        var res = options.blocks.if.apply(this, arguments)
+        c.stack[0].end += ')'
+        return {start: '"":' + res.start}
+      }
+    },
+
+    else: function (param, value, c) {
+      if ((param && ((c.stack[0] || {}).type != 'for')) || value) {
+        throw new Error('template: else takes no arguments.')
+      } else {
+        var res = options.blocks.elseif(param, '', c, function () { return 1 })
+        c.stack[0]._else = true   // may have been shift()'ed
+        return res
+      }
+    },
+
+    for: function (pf, value, c) {
+      var match = (pf || '').match(/^(\*)?(\w*)()$/)
+      if (!match) {
+        throw new Error('template: bad "for:' + pf + '".')
+      }
+      pf = c._lastFor = match[2]
+      return {
+        head:  'var ' + pf + 'i;',
+        start: '(' + pf + 'i=-1,' +
+               '_x.for(' + c.ref(value) + ',' + !!match[1] + ',' +
+               'function(' + pf + 'm,' + pf + 'k,' + pf + 'a){' +
+               pf + 'i++;return""',
+        end:   '""}))',
+      }
+    },
+  }, options.blocks)
+
+  var c = {
+    options: options,
+    stack: [],
+    _lastFor: null,
+
+    extra: {
+      for: function (value, forceObject, func) {
+        if (value == null || value === false) {
+          return ''
+        } else if (forceObject || !NoDash.isArrayLike(value)) {
+          return NoDash.entries(value)
+            .sort(function (a, b) {
+              // Keys may be numbers if forceObject && isArrayLike.
+              return (a[0] += '') > (b[0] += '') ? +1 : -1
+            })
+            .map(function (entry) { return func(entry[1], entry[0], value) })
+            .join('')
+        } else {
+          return NoDash.map(value, func).join('')
+        }
+      },
+    },
+
+    ref: function (s) {
+      if (!(s = s.trim())) { throw new Error('template: blank ref.') }
+      var m
+      if (m = s.match(/^(\w+)((\.\w+)*)$/)) {
+        s = '["' + m[2].substr(1).replace(/\./g,
+                (options.laxRef ? '","' : '"]["')) + '"]'
+        if (options.laxRef) {
+          s = '(typeof ' + m[1] + '=="undefined"?undefined:' +
+              (m[2] ? '_.at(' + m[1] + ',' + s + ')' : m[1]) + ')'
+        } else {
+          s = m[1] + (m[2] ? s : '')
+        }
+      } else if (!options.code) {
+        throw new Error('template: code refs prohibited.')
+      } else {
+        s = '(' + s + ')'
+      }
+      return s
+    },
+  }
+
+  var head = ''
+  var blocks = NoDash.keys(options.blocks).join('|')
+  var blockStart = new RegExp('^(' + blocks + ')(:\\S*)?(\\s+(.*))?$')
+  var blockEnd = new RegExp('^\\/\\s*(' + blocks + ')?\\s*$')
+
+  if (str instanceof Function) {
+    // RegExp /s flag (dotAll) is not supported in IE and older FF.
+    str = str.toString().match(/\/\*([\s\S]*)\*\//)[1].trim()
+  } else if (NoDash.isElement(str)) {
+    str = str.textContent
+  }
+
+  if (options.backslash) {
+    str = str.replace(/\\[\r\n]\s*/g, '')
+  }
+
+  str = str.replace(/(\\(\\\\)*)\{\{|((?:\\\\)*)\{\{\s*(.*?)\}\}|(["\\\0-\x1F])/g, function () {
+    var m = arguments
+    if (m[1]) {
+      var res = m[0].substr(1)
+    } else if (m[5]) {    // \ or " or non-printable
+      var code = m[0].charCodeAt(0)
+      var res = '\\x' + (code < 16 ? '0' : '') + code.toString(16)
+    } else {
+      var res = m[3] + '"+'
+      var inside = m[4]
+      if (m = inside.match(blockStart)) {
+        var block = options.blocks[m[1]](m[2] ? m[2].substr(1) : null,
+                                         m[3] ? m[4] : null, c)
+        head += block.head || ''
+        res += block.start || ''
+        block.type = block.type || m[1]
+        block.end && c.stack.unshift(block)
+      } else if (m = inside.match(blockEnd)) {
+        if (!c.stack.length || (m[1] && c.stack[0].type != m[1])) {
+          throw new Error('template: /' + c.stack[0].type + ' expected, {{' + m[0] + '}} found.')
+        }
+        res += c.stack.shift().end
+      } else {
+        res += '((T=' + c.ref(inside.substr(inside[0] == '=')) + ')==null?"":' +
+               (inside[0] == '=' ? 'T' : 'E(T)') + ')'
+      }
+      res += '+"'
+    }
+    return res
+  })
+
+  if (c.stack.length) {
+    str = NoDash.pluck(c.stack, 'type').join('}} <- {{')
+    throw new Error('template: unclosed {{' + str + '}}.')
+  }
+
+  str = head + 'return"' + str + '"'
+  // str (head) may contain "var".
+  if (options.with) { str = 'with(v){' + str + '}' }
+
+  if (!options.source) {
+    var def = options.prepare
+    if (def && (typeof def != 'function')) {
+      options.prepare = function (v) {
+        return NoDash.assign({}, def, v, {o: NoDash.assign({}, def.o, v.o)})
+      }
+    }
+
+    // It appears that strict mode isn't applied to such functions even
+    // though it applies to eval, neither when they're created nor called.
+    // But unlike eval they have access to the global scope only.
+    str = 'v=v||{};v=_p?_p(v):v;v.o=v.o||{};' +
+          'var T,E=v.o.escaper||function(s){return s};' + str
+    str = (new Function('_p,_,_x,v', str))
+      .bind(undefined, options.prepare, NoDash, c.extra)
+  }
+
+  return str
+},</code></pre>
+                          </dd>
+                  </dl>
+      </div>
+
+
+<footer class="footer">
+      <span class="footer__group">
+      ⁂
+              <a href="https://squizzle.me/js/nodash/">
+            NoDash</a>    </span>
+    <span class="footer__group">
+    <a href="#">Scroll to top</a>
+  </span>
+  <span class="footer__group">
+    Generated by
+    <a href="http://squizzle.me/chem" target="_blank">Chem &amp; Chemdoc</a>
+  </span>
+  <span class="footer__group">
+    2022-12-25  </span>
+  <span class="footer__group">
+    Typo?
+    <a href="https://github.com/ProgerXP/Orphus" target="_blank">Ctrl+Enter</a>
+  </span>
+</footer>
+    <script src="scripts.js"></script>
+
+          <link rel="stylesheet" href="prism.css">
+      <script src="prism.js"></script>
+      <script>
+        Prism.plugins.customClass.prefix('prism__')
+      </script>
+    
+        <script src="entities.js"></script>
+  </body>
+</html>
