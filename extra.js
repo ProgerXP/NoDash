@@ -43,10 +43,13 @@
   "use strict";
 
   //! +cl=Extra
-  // These functions are provided by `[nodash/extra`]. In browser context they are part of the main `'_/`'NoDash object.
+  // These functions are provided by `[nodash/extra`]. In browser context they
+  // are part of the main `'_/`'NoDash object.
   //
-  // This module depends on NoDash by default but it can also work with Underscore
-  // or LoDash. See `@sq@start#deps`@ on how to override this dependency (except  the NPM's `'override method won't work because `'extra uses a dependency on self). An example for Require.js:
+  // This module depends on NoDash by default but it can also work with
+  // Underscore or LoDash. See `@sq@start#deps`@ on how to override this
+  // dependency (except the NPM's `'override method won't work because `'extra
+  // uses a dependency on self). An example for Require.js:
   //[
   //  requirejs.config({
   //    map: {
@@ -57,46 +60,49 @@
   //  })
   //]
   return {
-    // Performs a remote request using `'XMLHttpRequest, offering a subset of jQuery's
-    // `'ajax() API.
+    // Performs a remote request using `'XMLHttpRequest, offering a subset of
+    // jQuery's `'ajax() API.
     //= XMLHttpRequest `- the `'xhr
     //> options object
     // Possible `'options keys:
     //> url str
     //> type str `- `'GET by default
-    //> data str`, object `- request data for `'POST, etc.; useful object types are
-    //  `@mdn:API/FormData`@, `@mdn:API/Blob`@ and `@mdn:API/URLSearchParams`@
-    //  (not in IE)
+    //> data str`, object `- request data for `'POST, etc.; useful object types
+    //  are `@mdn:API/FormData`@, `@mdn:API/Blob`@ and
+    //  `@mdn:API/URLSearchParams`@ (not in IE)
     //> dataType str `- type of `[xhr.response`], from standard
-    //  `@mdn:API/XMLHttpRequestResponseType`@; `'text by default; other useful types
-    //  are `'document (for HTML and XML), `'json, `'arraybuffer and `'blob
+    //  `@mdn:API/XMLHttpRequestResponseType`@; `'text by default; other useful
+    //  types are `'document (for HTML and XML), `'json, `'arraybuffer and
+    //  `'blob
     //> context object `- calling context for below callbacks
-    //> beforeSend function `- called before `[xhr.open()`]; receives `'xhr
-    //  and `'options (mutable, affects internal copy, not given `'options);
-    //  if returns `[=== false`] then the request is not performed and `'error
-    //  is called without giving `'e (imitates `'abort())
-    //> success function `- called when response has arrived; receives `'xhr
-    //  and `'e
+    //> beforeSend function `- called before `[xhr.open()`]; receives `'xhr and
+    //  `'options (mutable, affects internal copy, not given `'options); if
+    //  returns `[=== false`] then the request is not performed and `'error is
+    //  called without giving `'e (imitates `'abort())
+    //> success function `- called when response has arrived; receives `'xhr and
+    //  `'e
     //
     //  Warning: if `'dataType is `'json, responses being empty or the string
     //  "null" trigger `'success with `'response set to `'null.
-    //> error function `- called on a request or response error, and also
-    //  on `'beforeSend and `[xhr.abort()`]; receives `'xhr (always) and `'e
-    //  (only if not on `'beforeSend)
+    //> error function `- called on a request or response error, and also on
+    //  `'beforeSend and `[xhr.abort()`]; receives `'xhr (always) and `'e (only
+    //  if not on `'beforeSend)
     //> complete function `- called after completion, successful or not;
     //  receives `'xhr and `'e
-    //> progress function `- called during response transmission; receives
-    //  `'xhr and `'e where useful `'e properties are:
+    //> progress function `- called during response transmission; receives `'xhr
+    //  and `'e where useful `'e properties are:
     //  `> lengthComputable bool
     //  `> loaded int bytes
     //  `> total int bytes `- or 0
     //> timeout int milliseconds `- if exceeded, request `'error-s with the
     //  `'status of 0
     //> headers object `- members can be strings or arrays; if missing, assumed
-    //  `[X-Requested-With: XMLHttpRequest`] (for compatibility with jQuery's `'ajax())
+    //  `[X-Requested-With: XMLHttpRequest`] (for compatibility with jQuery's
+    //  `'ajax())
     //
     //  `[Content-Type: application/x-www-form-urlencoded`] is added if `'type
-    //  is not `'GET and `'data is not an object (browsers set the correct `[Content-Type`] automatically if it's an object).
+    //  is not `'GET and `'data is not an object (browsers set the correct
+    //  `[Content-Type`] automatically if it's an object).
     //
     //  For CORS, custom headers like `[X-Requested-With`] (but not
     //  `[Content-Type`]) mandate the preflight request. Give `'headers of `'{}
@@ -225,7 +231,7 @@
     // returns a formatted string.
     //= function accepting `'vars`, string if `[options.source`]
     //> str string`,
-    //  function take the contents of the first `[/**/`] comment`,
+    //  function take the contents of the first `[/**/`] comment (make sure it's not minified away)`,
     //  Node take `'textContent `- the template
     //> options object`, omitted `- compilation options
     // ` `#template() can be used outside of web browser environment.
@@ -233,25 +239,29 @@
     // See also `#format().
     //
     // Possible `'options keys:
-    //> prepare omitted`, object defaults for formatting variables and/or options (under
-    //  `'o)`, function `- function receives caller-given `'vars (`'{} if not given) and options under `'o (may be `'undefined)
-    //  and returns an object with complete variables
-    //  and options (may be mutated)
-    //> source bool`, omitted `- if set, returns a JavaScript string - code of the
-    //  function to be compiled
+    //> prepare omitted`, object defaults for formatting variables and/or
+    //  options (under `'o)`, function `- function receives caller-given `'vars
+    //  (`'{} if not given) and options under `'o (may be `'undefined) and
+    //  returns an object with complete variables and options (may be mutated)
+    //> source bool`, omitted `- if set, returns a JavaScript string - code of
+    //  the function to be compiled
     //> with bool`, omitted = `'true `- if set, members of `'vars can be
     //  referenced directly, not through `'v; such templates are slower due to
     //  using JavaScript's `[with { }`]
-    //> laxRef bool`, omitted = `'true `- if set, non-code `'ref
-    //  are resolved with `#at(), meaning they return the non-object
-    //  value immediately, even if there are more path components (that triggers
-    //  an error without `'laxRef, but is faster)
+    //> laxRef bool`, omitted = `'true `- if set, non-code `'ref are resolved
+    //  with `#at(), meaning they return the non-object value immediately, even
+    //  if there are more path components (that triggers an error without
+    //  `'laxRef, but is faster)
     //> code bool`, omitted = `'true `- if unset, fails to compile if there are
-    //  constructs allowing arbitrary code execution; in such case it should
-    //  be safe to pass `'str from untrusted input since it can only read
-    //  values given to the compiled function and from global `'window
-    //  (unless there are custom `'blocks)
-    //> backslash bool`, omitted = `'false `- if set, preprocesses `'str by removing backslashes placed before a line break together with all the following whitespace and line breaks; useful for splitting long lines that can't normally be split, wrapping `'{{ `'}} or getting rid of unwanted spaces inside `[<u>`]
+    //  constructs allowing arbitrary code execution; in such case it should be
+    //  safe to pass `'str from untrusted input since it can only read values
+    //  given to the compiled function and from global `'window (unless there
+    //  are custom `'blocks)
+    //> backslash bool`, omitted = `'false `- if set, preprocesses `'str by
+    //  removing backslashes placed before a line break together with all the
+    //  following whitespace and line breaks; useful for splitting long lines
+    //  that can't normally be split, wrapping `'{{ `'}} or getting rid of
+    //  unwanted spaces inside `[<u>`]
     //> blocks object`, omitted = default `'if/`'for/etc. `- new `'custom or
     //  overridden standard `'if/`'for/etc.; key is the block's name
     //  (alphanumeric), value is a function receiving `[param, value, c`]:
@@ -263,28 +273,29 @@
     //     `> options object `- an internal copy of `'options given to
     //        `#template(), with filled defaults
     //     `> ref function `- resolves a reference (see `'ref below); receives
-    //        a raw string, returns a JavaScript code snippet evaluating to string
+    //        a raw string, returns a JavaScript code snippet evaluating to
+    //        string
     //     `> stack `- current chain of blocks, first being last opened
     //     `> extra object `- for passing non-serializable data to the compiled
     //        function; available under `'_x variable
     //     `> * `- other keys can be used for storing custom state data
     //     Attention: be mindful of operator precedence: returning code like
     //     `[a || b`] will prevent the template from running; instead, return
-    //     `[(a || b)`]. Brackets are not added automatically because
-    //     `'( may appear in `'start and a matching `') appears in `'end.
+    //     `[(a || b)`]. Brackets are not added automatically because `'( may
+    //     appear in `'start and a matching `') appears in `'end.
     //  Function must return an object with keys:
     //  `> start omitted`, str `- JavaScript code evaluating to string
     //  `> end omitted`, str `- JavaScript code evaluating to string at the
-    //     time block's end is met (`[{{/}}`]); if `'null then the block
-    //     isn't opened and needs not be closed (alike to `[<input>`] in HTML)
+    //     time block's end is met (`[{{/}}`]); if `'null then the block isn't
+    //     opened and needs not be closed (alike to `[<input>`] in HTML)
     //  `> type omitted`, str `- used together with `'end; sets matching
     //     `'block_end's type; defaults for the block's key
     //  `> head omitted`, str `- JavaScript code added to the beginning of
     //     the compiled function; useful for declaring `[var`]iables
     //  Code snippets can use context variables like `'v (see below).
     //  Use `[JSON.stringify()`] to properly escape a string.
-    // Template syntax loosely resembles that of Mustache.js/Handlebars.js -
-    // all substitutions are performed within `[{{...}}`]:
+    // Template syntax loosely resembles that of Mustache.js/Handlebars.js - all
+    // substitutions are performed within `[{{...}}`]:
     //[
     //    escaped       = \[\\...]{{
     //    echo          = {{ [=] ref }}
@@ -299,8 +310,8 @@
     //
     //    ref           = var[.prop...] | code
     //]
-    //* `'escaped: a pair of `'{ prefixed with odd number of `'\ becomes raw `'{{
-    //  prefixed with half that number of `[\`]; even number of `'\ doesn't
+    //* `'escaped: a pair of `'{ prefixed with odd number of `'\ becomes raw
+    //  `'{{ prefixed with half that number of `[\`]; even number of `'\ doesn't
     //  escape `'{{ but is still emitted "halved": `[
     //      \{{ = {{    \\\{{ = \{    \\\\\{{ = \\{{
     //      \\{{...}} = \ + result    \\\\{{...}} = \\ + result
@@ -309,29 +320,34 @@
     //  or result of executing arbitrary code (if `'ref is not alphanumeric with
     //  periods). Without `'= the result is post-processed by `[v.o.escaper`]
     //  (e.g. HTML-escaped). If `'ref is `'null or `'undefined, emits nothing.
-    //* `'conditional: emits the enclosed block only if `'ref is truthy (or falsy
-    //  with `':not).
+    //* `'conditional: emits the enclosed block only if `'ref is truthy (or
+    //  falsy with `':not).
     //* `'loop: emits the enclosed block once for every iteration. `'ref is
-    //  given to `#forEach(), with `#forceObject if asterisk (`[*`]) is present. Optional `'pf specifies prefix for variables
-    //  inside the block that are by default `'m ("m"ember's value), `'k
-    //  ("k"ey), `'i ("i"ndex, same as `'k if `'ref `#isArrayLike), `'a ("a"ll,
-    //  the `'ref). In object mode, iterations are seamlessly ordered by comparing keys as strings (`[for:array`] iterates in different order than `[for:*array`]: `[2 < 10`] but `['2' > '10'`]).
+    //  given to `#forEach(), with `#forceObject if asterisk (`[*`]) is present.
+    //  Optional `'pf specifies prefix for variables inside the block that are
+    //  by default `'m ("m"ember's value), `'k ("k"ey), `'i ("i"ndex, same as
+    //  `'k if `'ref `#isArrayLike), `'a ("a"ll, the `'ref). In object mode,
+    //  iterations are seamlessly ordered by comparing keys as strings
+    //  (`[for:array`] iterates in different order than `[for:*array`]:
+    //  `[2 < 10`] but `['2' > '10'`]).
     //
-    //  Only `'i exists outside of the block and is `'undefined prior to the first
-    //  `'loop with that `'pf; after a `'loop it holds index of the last
-    //  iterated member, or `'-1 if `'ref was empty (or `'undefined/`'null/`'false) - this is what `'loop's
-    //  enclosed `'elseif/`'else test (they also change `'for's `'block_end from
-    //  `'/for to `'/if). Without `': or with `[:-`], last `'for (its `'pf) is
-    //  checked: `[{{elseif}} {{elseif:-}} {{elseif:-:not}}`] - but here last
-    //  `'for with empty `'pf is checked: `[{{elseif:}} {{elseif::not}}`].
-    //* `'block_end: give the expected block's type (not simply `[{{/}}`])
-    //  for extra syntax safety: `[
+    //  Only `'i exists outside of the block and is `'undefined prior to the
+    //  first `'loop with that `'pf; after a `'loop it holds index of the last
+    //  iterated member, or `'-1 if `'ref was empty (or
+    //  `'undefined/`'null/`'false) - this is what `'loop's enclosed
+    //  `'elseif/`'else test (they also change `'for's `'block_end from `'/for
+    //  to `'/if). Without `': or with `[:-`], last `'for (its `'pf) is checked:
+    //  `[{{elseif}} {{elseif:-}} {{elseif:-:not}}`] - but here last `'for with
+    //  empty `'pf is checked: `[{{elseif:}} {{elseif::not}}`].
+    //* `'block_end: give the expected block's type (not simply `[{{/}}`]) for
+    //  extra syntax safety: `[
     //      {{if ...}} {{for ...}} {{/}} {{/}}        - works
     //      {{if ...}} {{for ...}} {{/for}} {{/if}}   - works
     //      {{if ...}} {{for ...}} {{/if}} {{/for}}   - fails to compile
     //  `]
     //* Nested and multi-line `'{{ `'}} are not supported but you can use string
-    //  `'backslash or escapes: `[{{'}}\n'}}`] fails but `[{{'\\x7d\\n}'}}`] works.
+    //  `'backslash or escapes: `[{{'}}\n'}}`] fails but `[{{'\\x7d\\n}'}}`]
+    //  works.
     //
     // The returned compiled template function accepts these arguments:
     //> v object`, falsy = `'{} `- variables for access by `'ref; the `'o key
@@ -482,8 +498,8 @@
     //    }
     //    w({a: '<'}, {escaper: null})    //=> '&amp;'
     //  `]
-    //  Function form of `'prepare is useful if the template is compiled
-    //  early but the defaults it should use change over time:
+    //  Function form of `'prepare is useful if the template is compiled early
+    //  but the defaults it should use change over time:
     //  `[
     //    var f = _.template('{{r}}', {prepare: {r: Math.random()}})
     //    f()         //=> 0.2446989
@@ -527,9 +543,9 @@
     //    f({a: [1, 2, 3]})   //=> 'a a a'
     //  `]
     //
-    //? With enabled `[options.with`], `'loop's variables shadow global ones with
-    //  the same name but globals are still accessible through `[v.`].
-    //  Use `':pf to avoid shadowing. Assuming enabled `'with:
+    //? With enabled `[options.with`], `'loop's variables shadow global ones
+    //  with the same name but globals are still accessible through `[v.`]. Use
+    //  `':pf to avoid shadowing. Assuming enabled `'with:
     //  `[
     //      {{a}} {{v.a}}               // .a of the global variables object
     //      {{v.v.a}}                   // .a property of a global variable .v
@@ -785,17 +801,22 @@
     //   %K    - as %H but outputs week day number (1-7, 1 for Monday)
     //]
     // Possible `'options keys:
-    //> return int`, omitted = `'2 `- if `'2, `#format() returns the formatted string;
-    //  if `'1, returns a function that can be used to format the same `'str
-    //  using different set of `'arg'uments; if `'0, returns its source code
-    //> silent bool`, omitted `- if set, doesn't throw on insufficient number of `'arg-s and other warnings
-    //> ellipsis str`, null/omitted = `''...' `- terminator used when `'.p'recision outputs
-    //  a longer `'%s/`'%c string; use `''' to cut without one
-    //> defaultPrecision object`, omitted `- `'p value when no number follows the dot; unset `'%s/`'%c default to 100
-    //> specifiers object`, omitted `- non-standard or overridden specifiers (`[%...`]);
-    //  key is a single `'\w character, value is a function receiving
-    //  `[params, c`]:
-    //  `> params array `- specifier string parameters; useful keys (all but first and last can be empty):
+    //> return int`, omitted = `'2 `- if `'2, `#format() returns the formatted
+    //  string; if `'1, returns a function that can be used to format the same
+    //  `'str using different set of `'arg'uments; if `'0, returns its source
+    //  code
+    //> silent bool`, omitted `- if set, doesn't throw on insufficient number of
+    //  `'arg-s and other warnings
+    //> ellipsis str`, null/omitted = `''...' `- terminator used when
+    //  `'.p'recision outputs a longer `'%s/`'%c string; use `''' to cut without
+    //  one
+    //> defaultPrecision object`, omitted `- `'p value when no number follows
+    //  the dot; unset `'%s/`'%c default to 100
+    //> specifiers object`, omitted `- non-standard or overridden specifiers
+    //  (`[%...`]); key is a single `'\w character, value is a function
+    //  receiving `[params, c`]:
+    //  `> params array `- specifier string parameters; useful keys (all but
+    //     first and last can be empty):
     //     `> 0 `- full specifier string without leading `'%
     //     `> 2 `- if `'$ used: `'arg index wrapped in `'"
     //     `> 3 `- sign: `'+ or `'+ + space
@@ -809,23 +830,29 @@
     //  `> c object `- current state; keys:
     //     `> args array `- only when formatting; `'arg'uments for interpolation
     //     `> arg int `- only when formatting; index of current `'arg'ument
-    //     `> head str `- only when compiling; JavaScript code added to the beginning of
-    //        the compiled function; useful for declaring `[var`]iables
+    //     `> head str `- only when compiling; JavaScript code added to the
+    //        beginning of the compiled function; useful for declaring
+    //        `[var`]iables
     //     `> options object `- `'options given to `#format()
-    //     `> e function `- throws an `'Error unless `[options.silent`]; receives `'msg, returns `'true
-    //     `> next function `- only call when formatting; returns current `'arg and advances the index; receives `'null or a 1-based number: `['c.next(' + params[2] + ')'`]
+    //     `> e function `- throws an `'Error unless `[options.silent`];
+    //        receives `'msg, returns `'true
+    //     `> next function `- only call when formatting; returns current `'arg
+    //        and advances the index; receives `'null or a 1-based number:
+    //        `['c.next(' + params[2] + ')'`]
     //     `> * `- other keys can be used for storing custom state data
-    //  Function must return a JavaScript code string (will be wrapped in `[( )`]) which can use context
-    //  variables like `'a (see below).
+    //  Function must return a JavaScript code string (will be wrapped in
+    //  `[( )`]) which can use context variables like `'a (see below).
     //  Use `[JSON.stringify()`] to properly escape a string.
     //
     // These variables exist within the returned function:
     //> _ `- reference to NoDash regardless of the global `'_
     //> c `- current formatter's state (see above), shallow-copied for every new
     //  call of the returned function (still sharing `'options and others)
-    //> a `- temporary variable for use by the specifier formatter while it transforms the current `'arg
+    //> a `- temporary variable for use by the specifier formatter while it
+    //  transforms the current `'arg
     //
-    // For pretty formatting visible to user consider using standard `'Intl classes, such as:
+    // For pretty formatting visible to user consider using standard `'Intl
+    // classes, such as:
     //* `@mdn:JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat`@
     //* `@mdn:JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat`@
     //* `@mdn:JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat/RelativeTimeFormat`@

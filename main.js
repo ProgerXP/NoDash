@@ -164,8 +164,8 @@
   //  without resorting to other libraries. For example, it includes `#ajax()
   //  that is part of jQuery (and you can't really go without it), and `#trim()
   //  that is part of `*Underscore.string`* (and missing in IE), but omits a
-  //  plethora of `'is...() functions that are just aliases for `'instanceof
-  //  and `[===`].
+  //  plethora of `'is...() functions that are just aliases for `'instanceof and
+  //  `[===`].
   //* Most functions work uniformly with various data types. For example,
   //  `#indexOf() accepts an array, object or string while Underscore's
   //  `@un:indexOf`@() - array only. Same for `#map() that also works over
@@ -182,9 +182,9 @@
   // `<img src="data:image/gif;base64,R0lGODlhKQAQAIAAAP///8s5OCH5BAAAAAAALAAAAAApABAAAAJOjI+py+0Po5wK2GsP3np7kHygIY5BiYUXaaZst55jhri0fOf2bLK0roP9eKqhsCMkyopKnCf5WtZiwKfPKJW4KNxr97v9OkUMlPlcPosKADs" alt="npm"`> `*npm install squizzle-nodash`*
   //
   //* Download for development:
-  //  `@https://github.com/ProgerXP/NoDash/blob/master/nodash.js`@
+  //  `@https://github.com/ProgerXP/NoDash/archive/master.zip`@
   //* Download for production (minified):
-  //  `@https://github.com/ProgerXP/NoDash/blob/master/nodash.min.js`@
+  //  `@https://raw.githubusercontent.com/ProgerXP/NoDash/master/nodash.min.js`@
   //* Report issues: `@https://github.com/ProgerXP/NoDash/issues`@
   //* Get the code on GitHub: `@https://github.com/ProgerXP/NoDash`@
   //
@@ -195,10 +195,10 @@
   //* Result is of the same type as the `'value argument except for
   //  `#isArrayLike objects returned as arrays as explained below.
   //* If a function handles some array-like type differently (e.g. a string)
-  //  then it usually returns this type (e.g. `#chunk()). Other functions
-  //  that indicate that they accept an `'array type actually accept any
-  //  `#isArrayLike object (string, `'Arguments, jQuery collection, etc.)
-  //  but return a regular array. For example, `#shuffle`[('abc')`] returns
+  //  then it usually returns this type (e.g. `#chunk()). Other functions that
+  //  indicate that they accept an `'array type actually accept any
+  //  `#isArrayLike object (string, `'Arguments, jQuery collection, etc.) but
+  //  return a regular array. For example, `#shuffle`[('abc')`] returns
   //  `[['b', 'c', 'a']`].
   //* Original values are never modified. This is unlike some standard methods
   //  that mutate the input, like `@o:Array/sort`@().
@@ -215,8 +215,8 @@
     // `]
     NODASH: '0.10',
 
-    // Special `'{} value that can be given to NoDash's `#forEach() and others to make
-    // them treat an `#isArrayLike value like an object.
+    // Special `'{} value that can be given to NoDash's `#forEach() and others
+    // to make them treat an `#isArrayLike value like an object.
     forceObject: fo,
 
     //! +fn=noConflict
@@ -280,21 +280,24 @@
       })
     },
     //! `, +fna=function ( value, func [, initial )
-    // Calls `'func for every member of `'value, returning result of the last call.
+    // Calls `'func for every member of `'value, returning result of the last
+    // call.
     //
     //#rd
     //= mixed as returned by `'func, or `'initial if given and `'value is empty
     //> value array`, object
     //> func `- receives result of the previous `'func call, member's value, its
     //  key and the entire `'value
-    //> initial omitted`, mixed `- if omitted, `'func is not called for the first
-    //  time; instead, that member's value is used as if it was returned by `'func; will throw if omitted and `'value is empty
+    //> initial omitted`, mixed `- if omitted, `'func is not called for the
+    //  first time; instead, that member's value is used as if it was returned
+    //  by `'func; will throw if omitted and `'value is empty
     //#
-    // ECMAScript equivalent: `@o:Array/reduce`@. See also `#sum() and `#reduceRight()
-    // that iterates from the end of `'value.
+    // ECMAScript equivalent: `@o:Array/reduce`@. See also `#sum() and
+    // `#reduceRight() that iterates from the end of `'value.
     //
     //#unordered
-    // Attention: be wary about object `'value - JavaScript objects are unordered.
+    // Attention: be wary about object `'value - JavaScript objects are
+    // unordered.
     //
     //#
     // ` `#reduce() visits members of object `'value in arbitrary order.
@@ -317,15 +320,15 @@
     // returning result of the last call.
     //
     //#-rd
-    // ECMAScript equivalent: `@o:Array/reduceRight`@. See also `#reduce()
-    // that iterates from the start of `'value.
+    // ECMAScript equivalent: `@o:Array/reduceRight`@. See also `#reduce() that
+    // iterates from the start of `'value.
     //
     // ` `#reduceRight() does not support object `'value.
     reduceRight: function (value, func, initial) {
       return transform(value, arguments, 1, ap.reduceRight, objectNotSupported('reduceRight'))
     },
-    // Returns key of the first member of `'value for which `'func has
-    // returned truthyness.
+    // Returns key of the first member of `'value for which `'func has returned
+    // truthyness.
     //= int for array `'value (-1 if not found)`, scalar for object (`'undefined
     //  if not found)
     //#-fe
@@ -333,9 +336,8 @@
     // See also `#find() that returns the value.
     //
     //#-unordered
-    // ` `#findIndex() returns a key, not index for object `'value, and
-    // it returns an arbitrary match if there are multiple matching
-    // object members.
+    // ` `#findIndex() returns a key, not index for object `'value, and it
+    // returns an arbitrary match if there are multiple matching object members.
     //?`[
     //    _.findIndex(['a', 'b', 'c'], v => v == 'b')   //=> 1
     //    _.findIndex({a: 1, b: 2}, v => v == 2)        //=> 'b'
@@ -460,9 +462,12 @@
     //
     //#in
     //> value array`, object`, string
-    //> fromIndex omitted = 0`, int `- if negative, counts from the end; for string `'value this differs from ECMAScript where 0 is assumed (`@o:String/indexOf`@)
+    //> fromIndex omitted = 0`, int `- if negative, counts from the end; for
+    //  string `'value this differs from ECMAScript where 0 is assumed
+    //  (`@o:String/indexOf`@)
     //#
-    // ECMAScript equivalent: `@o:Array/includes`@ (not in IE). See also `#indexOf().
+    // ECMAScript equivalent: `@o:Array/includes`@ (not in IE).
+    // See also `#indexOf().
     //?`[
     //    _.includes([5, 1, 3], 5)      //=> true
     //    _.includes([5, 1, 3], 5, 1)   //=> false
@@ -477,15 +482,16 @@
       return index !== -1 /* remember: -1 == '-1' */ && index !== undefined
     },
     //! `, +fna=function ( value, member [, fromIndex] )
-    // Returns key of the first `'member appearance in `'value (`[===`]), or `'-1
-    // (array/string `'value) or `'undefined (object `'value).
+    // Returns key of the first `'member appearance in `'value (`[===`]), or
+    // `'-1 (array/string `'value) or `'undefined (object `'value).
     //
     //#-in
     // ECMAScript equivalent: `@o:Array/indexOf`@. See also `#includes(),
     // `#lastIndexOf().
     //
     //#-unordered
-    // ` `#indexOf() returns key of arbitrary `'member's occurrence and does not support `'fromIndex.
+    // ` `#indexOf() returns key of arbitrary `'member's occurrence and does not
+    // support `'fromIndex.
     //?`[
     //    _.indexOf([5, 1, 3], 5)      //=> 0
     //    _.indexOf([5, 1, 3], 5, 1)   //=> -1
@@ -494,7 +500,10 @@
     //    _.indexOf({a: 1, b: 2}, 9)   //=> undefined
     //    _.indexOf('abc', 'bc', 1)    //=> 1
     // `]
-    // If `'member exists, result is always a number (array/string `'value) or string (object `'value). The `['-1'`] string indicates a found `'member for object `'value so use `'=== to test `#indexOf()'s result if `'value may be of the either type:
+    // If `'member exists, result is always a number (array/string `'value) or
+    // string (object `'value). The `['-1'`] string indicates a found `'member
+    // for object `'value so use `'=== to test `#indexOf()'s result if `'value
+    // may be of the either type:
     //[
     //    _.indexOf([], 0) ==  _.indexOf({'-1': 0}, 0)   //=> true: -1 == '-1'
     //    _.indexOf([], 0) === _.indexOf({'-1': 0}, 0)   //=> false
@@ -515,7 +524,8 @@
       })
     },
     //! `, +fna=function ( value, member [, fromIndex] )
-    // Returns key of the last `'member appearance in `'value (`[===`]), or `'-1.
+    // Returns key of the last `'member appearance in `'value (`[===`]), or
+    // `'-1.
     //
     //#-in
     // ECMAScript equivalent: `@o:Array/lastIndexOf`@. See also `#indexOf().
@@ -581,8 +591,8 @@
     // Returns a string consisting of stringified members of `'value separated
     // by `'glue.
     //= str
-    //> value array`, object `- `'null and `'undefined members are seen as
-    //  blank strings
+    //> value array`, object `- `'null and `'undefined members are seen as blank
+    //  strings
     //> glue str`, undefined = `',
     // ECMAScript equivalent: `@o:Array/join`@.
     //
@@ -605,11 +615,12 @@
     },
     //! `, +fna=function ( value [, depth] )
     // "Unwraps" nested arrays or objects in `'value.
-    //= array with sparse slots removed`, object with duplicate keys keeping arbitrary value
+    //= array with sparse slots removed`, object with duplicate keys keeping
+    //  arbitrary value
     //> value array`, object `- nested members of the same type are flattened:
     //  arrays in array (in original positions), objects in object
-    //> depth int`, omitted = 1 `- number of nesting levels to flatten;
-    //  use `'Infinity to flatten all
+    //> depth int`, omitted = 1 `- number of nesting levels to flatten; use
+    //  `'Infinity to flatten all
     // ECMAScript equivalent: `@o:Array/flat`@ (not in IE).
     //?`[
     //    _.flat([[[1]], {b: 2}, 3])            //=> [[1], {b: 2}, 3]
@@ -617,8 +628,8 @@
     //    _.flat({a: [1], b: {c: 3}, d: [2]})   //=> {0: 1, c: 3} or {0: 2, c: 3}
     // `]
     //#-unordered
-    // ` `#flat() keeps value of the arbitrary key of duplicate object keys
-    // (see last example).
+    // ` `#flat() keeps value of the arbitrary key of duplicate object keys (see
+    // last example).
     flat: function (value, depth) {
       depth = depth || 1
       if (!NoDash.isArrayLike(value)) {
@@ -642,8 +653,8 @@
         while (--depth >= 0) {
           value = ap.concat.apply([], value.filter(function () { return true }))
           // It's deemed faster to iterate over specific depths (which is
-          // typically 1) even without changing value than checking every
-          // member for array-likeness.
+          // typically 1) even without changing value than checking every member
+          // for array-likeness.
           if (depth == Infinity && !value.some(NoDash.isArrayLike)) {
             break
           }
@@ -660,7 +671,8 @@
     //> begin int`, omitted = 0 `- starting index
     //> end int`, omitted = `'length `- index of the member `*after last`*
     //  included in the result
-    // ECMAScript equivalent: `@o:Array/fill`@ (not in IE). See also `#repeat(), `#object().
+    // ECMAScript equivalent: `@o:Array/fill`@ (not in IE).
+    // See also `#repeat(), `#object().
     //
     //#-slend
     //#-unordered
@@ -670,8 +682,8 @@
     //    _.fill({a: 1, b: 2}, 'a')       //=> {a: 'a', b: 'a'}
     // `]
     //? `'Array's constructor accepts new array's length and creates a sparse
-    //  `'Array where members are sort of `'undefined but can't be iterated
-    //  over `*except`* by some methods (e.g. `@o:Array/find`@). `#fill() can
+    //  `'Array where members are sort of `'undefined but can't be iterated over
+    //  `*except`* by some methods (e.g. `@o:Array/find`@). `#fill() can
     //  "un-sparse" it by assigning `'undefined till array's `'length:
     //  `[
     //    Array(3)                //=> [<3 empty slots>]
@@ -704,8 +716,10 @@
 
     // Originally Object functions.
 
-    // Returns an array of arrays with key-value pairs for each member of `'value.
-    //= array `- 0th members (keys) are always strings (object `'value) or numbers (other)
+    // Returns an array of arrays with key-value pairs for each member of
+    // `'value.
+    //= array `- 0th members (keys) are always strings (object `'value) or
+    //  numbers (other)
     //> value array`, object`, string
     // ECMAScript equivalent: `@o:Object/entries`@ (not in IE).
     // See also `#fromEntries().
@@ -775,8 +789,8 @@
     // Returns values of members in `'value.
     //= array with `#has() properties
     //> value array`, object `- in all cases returns a shallow copy
-    // ECMAScript equivalent: `@o:Array/slice`@, `@o:Object/values`@ (not in IE).
-    // See also `#toArray(), `#keys().
+    // ECMAScript equivalent: `@o:Array/slice`@, `@o:Object/values`@
+    // (not in IE). See also `#toArray(), `#keys().
     //?`[
     //    _.values([1, 2])        //=> [1, 2]
     //    _.values(Array(3))      //=> [<3 empty slots>]
@@ -793,12 +807,12 @@
       })
     },
     //! +ig +fn=assign:...objects
-    // Merges members of given objects into the first argument, overwriting
-    // keys of earlier arguments with later ones.
+    // Merges members of given objects into the first argument, overwriting keys
+    // of earlier arguments with later ones.
     //= object first of given arguments
     //> objects `- only object-type arguments
-    // ECMAScript equivalent: `@o:Object/assign`@ (not in IE). See also `#union(),
-    // `#intersection().
+    // ECMAScript equivalent: `@o:Object/assign`@ (not in IE).
+    // See also `#union(), `#intersection().
     //
     // ` `*Warning: `#assign() mutates the first argument (and returns it).`*
     //?`[
@@ -807,7 +821,8 @@
     //    _.assign({b: 3}, {b: 4})  //=> first argument changed to {b: 4}
     // `]
     //#a2o
-    //? Converting an object with numeric keys to an (ordered) array and back (`#assign, `#flip):
+    //? Converting an object with numeric keys to an (ordered) array and back
+    //  (`#assign, `#flip):
     //  `[
     //    _.assign([], {2: 'a', 0: 'b'})  //=> ['b', , 'a']
     //    _.flip(['b', , 'a'])            //=> {0: 'b', 1: undefined, 2: 'a'}
@@ -820,8 +835,8 @@
     //      //=> first argument unchanged, even though: 'toString' in {}
     //]
     assign: Object.assign || function () {
-      // If the environment (line above) is capable of assign() then it can handle
-      // Symbol-s as well. If it isn't, then it doesn't support Symbol
+      // If the environment (line above) is capable of assign() then it can
+      // handle Symbol-s as well. If it isn't, then it doesn't support Symbol
       // and we can iterate over objects normally.
       var cur = arguments[0]
       var keys = {}
@@ -885,7 +900,8 @@
     // Returns `'true if `'value has `'sub ending at `'endIndex (or `'length).
     //
     //#-sw
-    //> endIndex omitted = `'length`, int `- negative set to 0 (will match only for empty `'sub)
+    //> endIndex omitted = `'length`, int `- negative set to 0 (will match only
+    //  for empty `'sub)
     // ECMAScript equivalent: `@o:String/endsWith`@ (not in IE).
     // See also `#startsWith().
     //
@@ -900,8 +916,8 @@
       return NoDash.startsWith(value, sub, i - sub.length)
     },
     //! `, +fna=function ( value, length [, pad] )
-    // Returns a copy of `'value, with prepended `'pad if its `'length was
-    // too short.
+    // Returns a copy of `'value, with prepended `'pad if its `'length was too
+    // short.
     //
     //#ps
     //= array`, string `- always shallow-copied, even if `'value was long enough
@@ -931,8 +947,8 @@
       return end === unset ? value.concat(pad) : pad.concat(value)
     },
     //! `, +fna=function ( value, length [, pad] )
-    // Returns a copy of `'value, with appended `'pad if its `'length was
-    // too short.
+    // Returns a copy of `'value, with appended `'pad if its `'length was too
+    // short.
     //
     //#-ps
     // ECMAScript equivalent: `@o:String/padEnd`@ (not in IE).
@@ -1004,8 +1020,9 @@
     },
     // Replaces `[& < " '`] in `'value with equivalent HTML entitites.
     //= array`, object`, string
-    //> value array/object members escaped recursively (on `#isArrayLike basis, `'forceObject not supported)`, string`,
-    //  null/undefined as empty string`, other treat as string
+    //> value array/object members escaped recursively (on `#isArrayLike basis,
+    //  `'forceObject not supported)`,
+    //  string`, null/undefined as empty string`, other treat as string
     // The `'> is not escaped since it's not special unless your markup is
     // already broken (e.g. not using quotes for attributes). See
     // `@https://mathiasbynens.be/notes/ambiguous-ampersands`@ (thanks LoDash,
@@ -1029,10 +1046,12 @@
     // style depends on the parsing context (expression, string content, etc.)
     // and even the document's HTML version.
     //
-    // In HTML prior to 5, the SGML spec (`@https://www.w3.org/TR/html4/types.html#type-cdata`@)
-    // tells that only the sequence `'</ terminates `'script and `'style
-    // (HTML 4 has no `'template). But in HTML 5 for "legacy reasons" the rules
-    // are more involved and the spec (`@https://html.spec.whatwg.org/multipage/scripting.html#restrictions-for-contents-of-script-elements`@)
+    // In HTML prior to 5, the SGML spec
+    // (`@https://www.w3.org/TR/html4/types.html#type-cdata`@) tells that only
+    // the sequence `'</ terminates `'script and `'style (HTML 4 has no
+    // `'template). But in HTML 5 for "legacy reasons" the rules are more
+    // involved and the spec
+    // (`@https://html.spec.whatwg.org/multipage/scripting.html#restrictions-for-contents-of-script-elements`@)
     // suggests to escape `[<!--`], `[<script`] and `[</script`] (both
     // case-insensitive). In this example (HTML 5) the last line actually does
     // not close the tag which continues until the next `[</script>`] (do note
@@ -1047,8 +1066,8 @@
     //     const example = 'Consider this string: \x3C!-- \x3Cscript>';
     //]
     // However, it does not work with expressions where string escape sequences
-    // are taken literally. Such places may be rewritten, for example by inserting
-    // an insignificant whitespace after `[<`]:
+    // are taken literally. Such places may be rewritten, for example by
+    // inserting an insignificant whitespace after `[<`]:
     //[
     //     if (x<!--y) { ... }
     //     if ( player<script ) { ... }
@@ -1062,8 +1081,8 @@
     //
     // This means you cannot just take an arbitrary JavaScript snippet, escape
     // it without parsing and insert into a `'script tag. But you can use this
-    // to escape JSON expressions placed inside `'script or `'template (since
-    // in valid JSON `'< may only appear within strings and they support `'\x3C):
+    // to escape JSON expressions placed inside `'script or `'template (since in
+    // valid JSON `'< may only appear within strings and they support `'\x3C):
     //[
     //   function escapeJSON(value) {
     //     return JSON.stringify(value).replace(/<(!--|\/?script)/ig, '\\x3C$1')
@@ -1075,19 +1094,19 @@
     //]
     // Many popular frameworks (Flask, Django, Rails, etc.) wrongly provide the
     // one-size-fits-all escape function which even if prevents XSS inevitably
-    // results in a mangled value (at best) when parsed. For example,
-    // PHP's `'json_encode() converts `'/ to `'\/ by default but it has no
-    // effect on `'< so the following string results in an unclosed `'script
-    // tag, eating `[</script>`] and the rest of the document:
+    // results in a mangled value (at best) when parsed. For example, PHP's
+    // `'json_encode() converts `'/ to `'\/ by default but it has no effect on
+    // `'< so the following string results in an unclosed `'script tag, eating
+    // `[</script>`] and the rest of the document:
     //[
     //   <script>var s = <?=json_encode('<!--<script>')?></script>
     //]
     //
-    // In HTML 5 `'style, `'<!-- has no special meaning and it's enough to simply
-    // replace all `[</style>`] (case-insensitive) with something like
-    // `[<\/style>`] (`'\x3C is unsupported but `'\/ equals literal `[/`]).
-    // I cannot think of a valid CSS where `[</style>`] can appear as part of
-    // an expression, not a string or a comment so I assume this rule is
+    // In HTML 5 `'style, `'<!-- has no special meaning and it's enough to
+    // simply replace all `[</style>`] (case-insensitive) with something like
+    // `[<\/style>`] (`'\x3C is unsupported but `'\/ equals literal `[/`]). I
+    // cannot think of a valid CSS where `[</style>`] can appear as part of an
+    // expression, not a string or a comment so I assume this rule is
     // context-free.
     //[
     //   function escapeStyle(value) {
@@ -1200,8 +1219,8 @@
     //! `, +fna=function ( func [, numeric] )
     // Returns a function that calls `'func and inverts its result.
     //> func `- subject to `#bind()
-    //> numeric `- if truthy, changes sign of `'func's result, else treats it
-    //  as bool
+    //> numeric `- if truthy, changes sign of `'func's result, else treats it as
+    //  bool
     //?`[
     //    _.negate(() => true)      //=> will return false
     //    _.negate(() => -1, true)  //=> will return +1
@@ -1219,8 +1238,8 @@
     //#-fe
     // See also `#filter(), `#compact(), `#partition().
     //
-    // Since `#reject() is non-standard, its `'func is subject to `#bind()
-    // but it's better not to rely on this for symmetry and in case it gets
+    // Since `#reject() is non-standard, its `'func is subject to `#bind() but
+    // it's better not to rely on this for symmetry and in case it gets
     // standardized.
     reject: function (value, func, cx) {
       return NoDash.filter(value, NoDash.negate(func), cx)
@@ -1232,7 +1251,8 @@
     //= mixed if `'length is omitted, `'undefined on empty `'value`,
     //  type of `'value
     //> value array`, object`, string
-    //> length omitted return the value of one member`, int return a `#slice of `'value
+    //> length omitted return the value of one member`, int return a `#slice of
+    //  `'value
     //##-unordered
     // This function returns arbitrary members for object `'value.
     //
@@ -1322,7 +1342,8 @@
         return NoDash.map(value, invoke_, args.forceObject)
       })
     },
-    // Treats every member of `'value as an object and collects their `'property.
+    // Treats every member of `'value as an object and collects their
+    // `'property.
     //= array`, object
     //> value array`, object
     // See also `#map(), `#pick(), `#unzip().
@@ -1343,7 +1364,8 @@
     //> func omitted take the member's value as its rank`,
     //  function `- subject to `#bind(); receives member's value, its key and
     //  the entire `'value
-    // `'func must produce numbers or cast-able strings. Without `'func, this condition applies to `'value's members.
+    // `'func must produce numbers or cast-able strings. Without `'func, this
+    // condition applies to `'value's members.
     //
     //#
     // ECMAScript equivalent: `@o:Math/max`@. See also `#min().
@@ -1400,9 +1422,9 @@
     // Returns a copy of `'value with members sorted according to `'func.
     //= array `- even for object `'value
     //> value array`, object
-    //> func `- subject to `#bind(); receives member's value, its key and
-    //  the entire `'value; returns a comparable (number or string); members
-    //  with identical ranks are sorted by their keys
+    //> func `- subject to `#bind(); receives member's value, its key and the
+    //  entire `'value; returns a comparable (number or string); members with
+    //  identical ranks are sorted by their keys
     // See also `#sort().
     //?`[
     //    _.sortBy([5, 1, 3], v => v)               //=> [1, 3, 5]
@@ -1415,8 +1437,8 @@
     // Puts every member of `'value under its group determined by `'func.
     //= object `- members are arrays or objects depending on `'value's type
     //> value array`, object
-    //> func `- subject to `#bind(); receives member's value, its key and
-    //  the entire `'value; returns a scalar (member's group)
+    //> func `- subject to `#bind(); receives member's value, its key and the
+    //  entire `'value; returns a scalar (member's group)
     // See also `#indexBy().
     //?`[
     //    _.groupBy([-1, 1, -2, 2], v => v > 0)
@@ -1441,9 +1463,9 @@
     // Changes keys of `'value members to ones determined by `'func.
     //= array`, object
     //> value array`, object
-    //> func `- subject to `#bind(); receives member's value, its key and
-    //  the entire `'value; returns a scalar (member's new key); of duplicate
-    //  keys only the last occurrence is kept (arbitrary for object `'value)
+    //> func `- subject to `#bind(); receives member's value, its key and the
+    //  entire `'value; returns a scalar (member's new key); of duplicate keys
+    //  only the last occurrence is kept (arbitrary for object `'value)
     // See also `#groupBy().
     //?`[
     //    _.indexBy([-1, 1, -2, 2], v => v > 0)
@@ -1463,8 +1485,8 @@
     // each result was returned.
     //= object
     //> value array`, object
-    //> func `- subject to `#bind(); receives member's value, its key and
-    //  the entire `'value; returns a scalar
+    //> func `- subject to `#bind(); receives member's value, its key and the
+    //  entire `'value; returns a scalar
     //?`[
     //    _.countBy([-1, 1, 0, -2, 2], v => v > 0)
     //      //=> {false: 3, true: 2}
@@ -1517,9 +1539,10 @@
     // Returns a random member of `'value, or `'undefined.
     //> value array`, object
     //> n int`, omitted `- exists for compatibility with Underscore's
-    //  `@un:sample`@() and LoDash's `@lo:sample`@(); if given, `#sample()
-    //  works just like `#shuffle() in NoDash
-    // See also `#random() and `#shuffle() that returns several random members of `'value.
+    //  `@un:sample`@() and LoDash's `@lo:sample`@(); if given, `#sample() works
+    //  just like `#shuffle() in NoDash
+    // See also `#random() and `#shuffle() that returns several random members
+    // of `'value.
     //?`[
     //    _.sample([1, 2, 3])               //=> 3
     //    _.sample({a: 1, b: 2})            //=> 2
@@ -1543,9 +1566,11 @@
     //> max `- returns an int between 0 and `'max (inclusive) or `'max and 0 if
     //  `'max is < 0
     //> min_max `- returns an int between `'min and `'max (inclusive)
-    // ECMAScript equivalent: `@o:Math/random`@. See also `#shuffle(), `#sample().
+    // ECMAScript equivalent: `@o:Math/random`@.
+    // See also `#shuffle(), `#sample().
     //
-    // Replace this method to make other NoDash functions use another PRNG. Nice reference: `@https://stackoverflow.com/questions/521295/`@.
+    // Replace this method to make other NoDash functions use another PRNG.
+    // Nice reference: `@https://stackoverflow.com/questions/521295/`@.
     random: function (min, max) {
       switch (arguments.length) {
         case 0:
@@ -1558,7 +1583,8 @@
     },
     // Converts `'value to a regular `'Array.
     //= array
-    //> value array shallow-copied via `#slice()`, object `#values returned`, other (null and `'typeof not `'object) returned as `[[value]`]
+    //> value array shallow-copied via `#slice()`, object `#values returned`,
+    //  other (null and `'typeof not `'object) returned as `[[value]`]
     // See also `#isArrayLike(), `#values().
     //?`[
     //    _.toArray('abc')                    //=> ['abc']
@@ -1579,7 +1605,8 @@
       }
     },
     //! `, +fna=function (value)
-    // Returns number of members in `'value, excluding "empty" slots in sparse array.
+    // Returns number of members in `'value, excluding "empty" slots in sparse
+    // array.
     //> value array`, object`, string
     // See also `#isArrayLike().
     //?`[
@@ -1602,11 +1629,11 @@
       }
     },
     // Splits members of `'value into two groups determined by `'func.
-    //= array of `[matching, mismatching`] where each member is either an
-    //  array or object depending on `'value's type
+    //= array of `[matching, mismatching`] where each member is either an array
+    //  or object depending on `'value's type
     //> value array`, object
-    //> func `- subject to `#bind(); receives member's value, its key and
-    //  the entire `'value; result converted to bool
+    //> func `- subject to `#bind(); receives member's value, its key and the
+    //  entire `'value; result converted to bool
     // See also `#filter(), `#reject(), `#compact().
     //?`[
     //    _.partition([-1, 1, -2, 2], v => v > 0)
@@ -1718,8 +1745,8 @@
     // Returns a sorted copy of `'value without identical (`[===`]) members.
     //= array`, object
     //> value array`, object
-    //> func function subject to `#bind(); ranking members of `'value as if by `#groupBy()`,
-    //  omitted to sort by member's string value
+    //> func function subject to `#bind(); ranking members of `'value as if by
+    //  `#groupBy()`, omitted to sort by member's string value
     //?`[
     //    _.unique([2, 1, 2])             //=> [1, 2]
     //    _.unique([2, 1, 2], v => -v)    //=> [2, 1] (ranked as -2, -1)
@@ -1748,8 +1775,8 @@
       }
     },
     //! `, +fna=function ( ...values )
-    // Puts member of every argument into that argument's position in the unified
-    // returned collection.
+    // Puts member of every argument into that argument's position in the
+    // unified returned collection.
     //= array of arrays`, array of objects (of duplicate keys last is used)
     //> values arrays of arrays`, objects with array properties
     // See also `#unzip() that does the reverse.
@@ -1778,8 +1805,8 @@
           return NoDash.map(args, function (a) { return a[index] })
         })
     },
-    // Splits members of `'value into multiple collections, each containing
-    // all members' values for a particular property.
+    // Splits members of `'value into multiple collections, each containing all
+    // members' values for a particular property.
     //= array of arrays`, object
     //> value arrays of arrays`, array of objects
     // See also `#zip() that does the reverse, and `#pluck() that returns a
@@ -1805,7 +1832,8 @@
       })
     },
     //! `, +fna=function ( keys [, values] )
-    // Returns an object constructed from given keys and values as separate lists.
+    // Returns an object constructed from given keys and values as separate
+    // lists.
     //= object
     //> keys array`, object
     //> values same type as `'keys`, omitted `- missing member for `'keys
@@ -1880,7 +1908,8 @@
     //  (inclusive), else from 0 (inclusive) to `'end (exclusive)
     //> begin_end `- returns a series from `'begin (inclusive) to `'end
     //  (exclusive)
-    //> ...step int non-zero `- defaults to -1 or +1 depending on `'begin and `'end
+    //> ...step int non-zero `- defaults to -1 or +1 depending on `'begin and
+    //  `'end
     // See also `#times().
     //?`[
     //    _.range(0)        //=> []
@@ -1941,8 +1970,8 @@
     //
     //#
     //
-    // See also `#omit() that returns mismatching keys, and `#pluck() that returns
-    // a single non-own property.
+    // See also `#omit() that returns mismatching keys, and `#pluck() that
+    // returns a single non-own property.
     //?`[
     //    _.pick({a: 1, b: 2, c: 3}, v => v < 2)    //=> {a: 1}
     //    _.pick({a: 1, b: 2, c: 3}, ['a', 'c'])    //=> {a: 1, c: 3}
@@ -2000,11 +2029,13 @@
     // Calls `'func outside of the current call stack, giving it `'args.
     //
     //#-dl
-    // Calls `#delay() (`@mdn:API/WindowOrWorkerGlobalScope/setTimeout`@) with 0 delay.
+    // Calls `#delay() (`@mdn:API/WindowOrWorkerGlobalScope/setTimeout`@) with 0
+    // delay.
     //
     // Don't rely on `#defer() to update a DOM node's visual properties because
-    // modern browsers batch such changes and may even ignore them. Use `#redraw()
-    // instead, or `#delay() with a large timeout (>= 20 ms, less preferable).
+    // modern browsers batch such changes and may even ignore them. Use
+    // `#redraw() instead, or `#delay() with a large timeout (>= 20 ms, less
+    // preferable).
     defer: function () {
       var args = ap.slice.call(arguments)
       args.splice(1, 0, 0)
@@ -2013,13 +2044,16 @@
     //! `, +fna=function ( node [, class] )
     // Attempts to force redraw of the given DOM `'node.
     //> node `'Element
-    //> class omitted`, str remove from `'classList and re-add (even if wasn't present)
+    //> class omitted`, str remove from `'classList and re-add (even if wasn't
+    //  present)
     //= node
     //
     // Use `#redraw() instead of `#defer() to update DOM state immediately
     // (dimensions, animation, etc.). For example, if `'.foo class creates an
-    // animation and you want to restart it (and don't want to use `@mdn:API/Animation`@), depending on your browser you may not see any changes to `'node
-    // if you simply remove and add that class - animation may continue playing:
+    // animation and you want to restart it (and don't want to use
+    // `@mdn:API/Animation`@), depending on your browser you may not see any
+    // changes to `'node if you simply remove and add that class - animation may
+    // continue playing:
     //[
     //    node.classList.remove('foo')
     //    _.defer(function () {           // = setTimeout(func, 0)
@@ -2036,7 +2070,10 @@
     //[
     //    _.redraw(node, 'foo')
     //]
-    // Another example: because `[animation-delay`] counts from the time the animation has originally started playing (see `@mdn:CSS/animation-delay#time`@), after changing it the animation will usually be at some random frame unless restarted:
+    // Another example: because `[animation-delay`] counts from the time the
+    // animation has originally started playing (see
+    // `@mdn:CSS/animation-delay#time`@), after changing it the animation will
+    // usually be at some random frame unless restarted:
     //[
     //    node.style.animationName = 'none'
     //    _.redraw(node)
@@ -2064,12 +2101,13 @@
     // See also `#debounce().
     //
     //#tcan
-    // Call `'cancel() on the returned function to stop currently pending invocation, if any.
+    // Call `'cancel() on the returned function to stop currently pending
+    // invocation, if any.
     //
     //#
     //
-    // Consider this diagram (given `'ms of 50, `'- standing for 10 ms,
-    // `'> for time the returned function (RT) was first and last called):
+    // Consider this diagram (given `'ms of 50, `'- standing for 10 ms, `'> for
+    // time the returned function (RT) was first and last called):
     //[
     //     c    c     c     c   func invocations
     //    >L----TL----TL-->-T   leading = trailing = true
@@ -2078,14 +2116,14 @@
     //    > ----T ----T -->-T   leading = false, trailing = true
     //]
     //* Calling RT at any point during the throttle period extends the period.
-    //* `'L tells when `'func is invoked if `'leading is set, `'T - if `'trailing
-    //  is set.
-    //* `'trailing invokes `'func after the end of the last period (even when
-    //  RT is no longer called).
+    //* `'L tells when `'func is invoked if `'leading is set, `'T - if
+    //  `'trailing is set.
+    //* `'trailing invokes `'func after the end of the last period (even when RT
+    //  is no longer called).
     //* Disabling both `'leading and `'trailing is useless.
-    //* When both are enabled, `'T and `'L in the beginning
-    //  of the 2nd and subsequent periods are "merged", resulting in only one
-    //  `'func invocation.
+    //* When both are enabled, `'T and `'L in the beginning of the 2nd and
+    //  subsequent periods are "merged", resulting in only one `'func
+    //  invocation.
     throttle: function (func, ms, options) {
       func = bind(func)
       options = NoDash.assign({leading: true, trailing: true}, options)
@@ -2122,9 +2160,9 @@
     //#-tcan
     //? If `'ms is 100 and `'immediate is `'false, if the function is called,
     //  then called again after 50 ms, then again after 200 ms - `'func is
-    //  called twice: after 100 ms after the 2nd call and after 100 ms after
-    //  the 3rd call. If `'immediate is `'true, `'func is called right on the
-    //  first call, then right on the 3rd.
+    //  called twice: after 100 ms after the 2nd call and after 100 ms after the
+    //  3rd call. If `'immediate is `'true, `'func is called right on the first
+    //  call, then right on the 3rd.
     debounce: function (func, ms, immediate) {
       func = bind(func)
       var timer
@@ -2168,8 +2206,8 @@
       }
     },
     //! `, +fna=function ( path, default )
-    // Returns a function accepting an object and returning value of its property
-    // or of its sub-objects.
+    // Returns a function accepting an object and returning value of its
+    // property or of its sub-objects.
     //
     // ` `#property() calls `#at() on the inside.
     //?`[
@@ -2183,13 +2221,13 @@
     //! `, +fna=function ( value, path, default )
     // Returns value of `'value's property or of its sub-objects.
     //> value array`, object
-    //> path array`, scalar assume `[[path]`] `- each member is a key;
-    //  resolving stops on `'null or `'undefined
+    //> path array`, scalar assume `[[path]`] `- each member is a key; resolving
+    //  stops on `'null or `'undefined
     //> default mixed returned if property not found`, omitted returns the last
     //  found `'undefined or `'null
     // Without `'default, it's not possible to determine if `'path has resolved
-    // to a property with `'undefined or `'null or if it ended prematurely
-    // on such a property with more components left in `'path.
+    // to a property with `'undefined or `'null or if it ended prematurely on
+    // such a property with more components left in `'path.
     //
     // See also `#property() that returns a callback suitable for `#map().
     //?`[
@@ -2259,11 +2297,10 @@
     //! `, +fna=function ( func [, cx [, ...args]] )
     // Returns a version of `'func with added arguments and/or forced context.
     //= function`, falsy if `'func or `[func[0]`] is falsy
-    //> func function (`'args are prepended)`,
-    //  array of `[func[, cx[, ...hereArgs]]`] (`'cx and `'args arguments
-    //  are ignored)
-    //> cx object override the caller-specified context for `'func (its `'this)`,
-    //  undefined keep the caller-specified context
+    //> func function (`'args are prepended)`, array of `[func[, cx[,
+    //  ...hereArgs]]`] (`'cx and `'args arguments are ignored)
+    //> cx object override the caller-specified context for `'func (its
+    //  `'this)`, undefined keep the caller-specified context
     //> args `- argument(s) pushed in front of the caller's arguments to `'func
     // ECMAScript equivalent: `@o:Function/bind`@.
     //
@@ -2278,7 +2315,8 @@
     //
     // If the context set by array `'func's 1st member or, in absence of such,
     // by `'cx is `'undefined then returned function preserves the
-    // caller-specified context (aka "partial" application without context binding).
+    // caller-specified context (aka "partial" application without context
+    // binding).
     //
     //?`[
     //    _.bind(function () { ... }, window, 'a').call(cx, 'b')
@@ -2314,12 +2352,13 @@
     // Determines if two values of arbitrary types are "equal".
     //= bool
     // Exists for compatibility with Underscore `@un:isEqual`@() and LoDash
-    // `@lo:isEqual`@() that have them very elaborate. For example, two different
-    // `'Date objects may be "equal" if they reference exactly the same timestamp.
+    // `@lo:isEqual`@() that have them very elaborate. For example, two
+    // different `'Date objects may be "equal" if they reference exactly the
+    // same timestamp.
     //
-    // NoDash's `#isEqual() simply defers the task to JavaScript's `'==
-    // operator which is sufficient in most cases. Just keep in mind that if
-    // one argument is a boolean or number, `'== converts the other to number:
+    // NoDash's `#isEqual() simply defers the task to JavaScript's `'== operator
+    // which is sufficient in most cases. Just keep in mind that if one argument
+    // is a boolean or number, `'== converts the other to number:
     //[
     //    '123' == 123            //=> true
     //    true == 1               //=> true

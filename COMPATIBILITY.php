@@ -53,7 +53,6 @@ $gen->chemdocConfig()->customInsets['FunctionIndex'] = function ($formatter, $to
     return strcasecmp($a[0]['name'], $b[0]['name']);
   });
 
-  // XXX
   $entities = new Chem\EntityList;
   $entities->unserialize(json_decode(file_get_contents('docs/entities.json')));
   $output = new Chem\HtmlOutput;
